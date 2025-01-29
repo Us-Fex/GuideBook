@@ -6,6 +6,13 @@
     <title>Interactive Training Manual</title>
 <link href="https://fonts.googleapis.com/css2?family=Monument+Extended&display=swap" rel="stylesheet">
     <style>
+		html {
+    scroll-behavior: smooth;
+}
+		html, body {
+   			 overflow-x: hidden;
+  			 width: 100%;
+}
         /* Layout for the whole page */
         body {
             font-family: 'Monument Extended', Arial, sans-serif;
@@ -17,6 +24,8 @@
         .container {
             display: flex;
             width: 100%;
+			max-width: 100vw; /* Prevents it from exceeding the viewport width */
+  			overflow-x: hidden;
         }
 
         /* Left Sidebar */
@@ -85,10 +94,13 @@ ol, ul {
         }
 
         section img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin-bottom: 0;
+    	 max-width: calc(100% - 50px); /* Adjust based on padding */
+         height: auto;
+         display: block;
+   		 margin: 20px auto; /* Adds space around the image */
+   		 padding: 10px; /* Adds space inside the image container */
+		 box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.3); /* Adds a soft shadow */
+    	 border-radius: 5px; /* Optional: Rounds the corners slightly */
         }
 
         .floating-box {
@@ -154,6 +166,12 @@ ol, ul {
     font-size: 12px;  /* Smaller font size */
     font-style: italic;  /* Italicized text */
 }
+		
+			.sidebar li {
+    list-style-type: none;
+    padding-left: 10px;  /* Space for the bullet point or icon */
+    text-indent: -10px;  /* Pulls the first line back */
+}
 @media (max-width: 800px) {
     .sidebar a {
         font-size: 12px;  /* Smaller font size for mobile devices */
@@ -184,7 +202,7 @@ ol, ul {
 					<button class="toggle-btn" onclick="toggleSubLinks('section1')">
                     <span class="circle-icon"></span>
                     </button>
-                    <a href="#invite1" onclick="toggleSubLinks('section1')">Invite A User [ Only this one is fully functional ]</a>   <!-- Invite - Fully typed is for title with button -->
+                    <a href="#invite1" onclick="toggleSubLinks('section1')">Invite A User</a>   <!-- Invite - Fully typed is for title with button -->
                     <ul id="section1" class="sub-links">
                         <li><a href="#inv2">Open the application.</a></li> <!-- Inv - first few letters to img -->
                         <li><a href="#inv3">Log in using your “Username” and “Password”.</a></li>
@@ -198,106 +216,140 @@ ol, ul {
 					<button class="toggle-btn" onclick="toggleSubLinks('section2')">
                     <span class="circle-icon"></span>
                     </button>
-                    <a href="#carrier1" onclick="toggleSubLinks('section2')">Invite Carriers to the Platform</a> <!-- Invite - Fully typed is for title with button -->
+                    <a href="#brokeregister1" onclick="toggleSubLinks('section2')">Broker Registration</a> <!-- Invite - Fully typed is for title with button -->
                     <ul id="section2" class="sub-links">
-                        <li><a href="#car2">Sub-link 4</a></li><!-- Inv - first few letters to img -->
-                        <li><a href="#car3">Sub-link 5</a></li>
-						<li><a href="#car4">Sub-link 5</a></li>
+                        <li><a href="#br2">After signing up as a broker, you will receive an email notification containing a registration link.</a></li><!-- Inv - first few letters to img -->
+                        <li><a href="#br2">Open your email inbox and locate the invitation email.</a></li>
+						<li><a href="#br2">Click on the "<strong>Registration Link</strong>" provided in the email.</a></li>
+						<li><a href="#br3">The link will direct you to the "<strong>User Profile</strong>" page in the application.</a></li>
+						<li><a href="#br3">Fill out the registration form with the required information and click "<strong>Next</strong>".</a></li>
+						<li><a href="#br4">You will be redirected to the "<strong>Documents</strong>" tab.</a></li>
+						<li><a href="#br4">Upload the contract document on the "<strong>Documents</strong>" screen. Click "<strong>Submit</strong>" to complete the process.</a></li>
+						<li><a href="#br5">The system will then redirect you to the "<strong>Login</strong>" screen.</a></li>
                     </ul>
                 </li>
                 <li>
 					<button class="toggle-btn" onclick="toggleSubLinks('section3')">
                     <span class="circle-icon"></span>
                     </button>
-                    <a href="#Shipment1" onclick="toggleSubLinks('section3')">Broker Shipment</a>   <!-- Invite - Fully typed is for title with button -->
+                    <a href="#Invitecar1" onclick="toggleSubLinks('section3')">Invite Carriers to the Platform</a>   <!-- Invite - Fully typed is for title with button -->
                     <ul id="section3" class="sub-links">
-                        <li><a href="#ship2">Open the application.</a></li> <!-- Inv - first few letters to img -->
-                        <li><a href="#ship3">Log in using your “Username” and “Password”.</a></li>
-                        <li><a href="#ship4">Sub-link 3</a></li>
+                        <li><a href="#ship2">As a broker, you will navigate to the "<strong>Carriers</strong>" menu and select the "<strong>Find Network Carriers</strong>" sub-tab.</a></li> <!-- Inv - first few letters to img -->
+                        <li><a href="#ship3">Search for carriers using their DOT number or company name.</a></li>
+                        <li><a href="#ship4">Click the "<strong>Connect</strong>" button next to the desired carrier.</a></li>
+						<li><a href="#ship4">Complete the required fields in the "<strong>Invite Carrier</strong>" pop-up.</a></li>
+						<li><a href="#ship4">Click the "<strong>Send Invitation</strong>" button.</a></li>
+						<li><a href="#ship4">The carrier will receive an email notification containing a link that directs them to the registration page.</a></li>
                     </ul>
                 </li>
 				                <li>
 					<button class="toggle-btn" onclick="toggleSubLinks('section4')">
                     <span class="circle-icon"></span>
                     </button>
-                    <a href="#invite1">Broker Registration</a>   <!-- Invite - Fully typed is for title with button -->
+					
+					<a href="#carregister1" onclick="toggleSubLinks('section4')">Carrier Registration</a>   <!-- Invite - Fully typed is for title with button -->
                     <ul id="section4" class="sub-links">
-                        <li><a href="#inv2">Open the application.</a></li> <!-- Inv - first few letters to img -->
-                        <li><a href="#inv3">Log in using your “Username” and “Password”.</a></li>
-                        <li><a href="#inv4">Navigate to the "Profile" section and select the "Invite User" option.</a></li>
-						<li><a href="#inv4">Click the "Invite User" button.</a></li>
-						<li><a href="#inv5">Fill in the required details on the form.</a></li>
-						<li><a href="#inv5">Click the "Invite User" button to send the invitation.</a></li>
+						
+                        <li><a href="#reg2">The carrier clicks on the "<strong>Registration Link</strong>" provided in the email invitation.</a></li> <!-- Inv - first few letters to img -->
+                        <li><a href="#reg3">Enter the "<strong>DOT Number</strong>" and click "Verify and Proceed".</a></li>
+                        <li><a href="#reg4">Navigate to the "<strong>Profile</strong>" section and select the "<strong>Invite User</strong>" option.</a></li>
+						<li><a href="#reg4">The system navigates to the "<strong>Registration</strong>" screen.</a></li>
+						<li><a href="#reg5">Complete all the required fields on the registration screen and click "<strong>Continue</strong>".</a></li>
+						<li><a href="#reg5">The system redirects the user to the "<strong>Login</strong>" screen. Enter your credentials and click "<strong>Sign In</strong>".</a></li>
+						<li><a href="#reg5">A 2FA code will be sent to your email. Enter the code and click "<strong>Verify</strong>".</a></li>
+						<li><a href="#reg5">The system navigates to a screen with five sub-tabs:<br>
+						Equipment Types: Add the required equipment types and click "<strong>Next</strong>".<br>
+						Lanes: Add the lanes and click "<strong>Next</strong>".<br>
+						Signature: Provide your signature and click "<strong>Next</strong>".<br>
+						Documents: Upload the required documents and click "<strong>Next</strong>".<br>
+						Contract: Accept and upload the contract document, then click "<strong>Submit</strong>".</a></li>
+						<li><a href="#reg5">Click the "Invite User" button to send the invitation.</a></li>
                     </ul>
                 </li>
 				                <li>
 					<button class="toggle-btn" onclick="toggleSubLinks('section5')">
                     <span class="circle-icon"></span>
                     </button>
-                    <a href="#invite1">Invite Carriers to the Platform</a>   <!-- Invite - Fully typed is for title with button -->
+
+					<a href="#bidrate1" onclick="toggleSubLinks('section5')">Brokers Creating Shipments (Bid & Contract Rates)</a>   <!-- Invite - Fully typed is for title with button -->
                     <ul id="section5" class="sub-links">
-                        <li><a href="#inv2">Open the application.</a></li> <!-- Inv - first few letters to img -->
-                        <li><a href="#inv3">Log in using your “Username” and “Password”.</a></li>
-                        <li><a href="#inv4">Navigate to the "Profile" section and select the "Invite User" option.</a></li>
-						<li><a href="#inv4">Click the "Invite User" button.</a></li>
-						<li><a href="#inv5">Fill in the required details on the form.</a></li>
-						<li><a href="#inv5">Click the "Invite User" button to send the invitation.</a></li>
+						
+                        <li><a href="#inv2">As a broker, you will navigate to the "<strong>Shipments</strong>" menu.</a></li> <!-- Inv - first few letters to img -->
+                        <li><a href="#inv3">Click on the "<strong>Create Shipment</strong>" button.</a></li>
+                        <li><a href="#inv4">Fill in all the required details on the "<strong>Details</strong>" screen and click "<strong>Next</strong>".</a></li>
+						<li><a href="#inv4">Complete the information on the "<strong>Contracted Rate</strong>" screen and click "<strong>Next</strong>".</a></li>
+						<li><a href="#inv5">In the "<strong>Network</strong>" screen, select the carriers from the "<strong>Visibility</strong>" section.</a></li>
+						<li><a href="#inv5">Click the "<strong>Create Shipment</strong>" button.</a></li>
+						<li><a href="#inv5">The created shipments will be listed on the "<strong>Available Loads</strong>" screen.</a></li>
                     </ul>
                 </li>
 				                <li>
 					<button class="toggle-btn" onclick="toggleSubLinks('section6')">
                     <span class="circle-icon"></span>
                     </button>
-                    <a href="#carrier12">Carrier Registration</a>   <!-- Invite - Fully typed is for title with button -->
+									
+					<a href="#carriership1" onclick="toggleSubLinks('section6')">Carrier Negotiates on a Shipment</a>   <!-- Invite - Fully typed is for title with button -->
                     <ul id="section6" class="sub-links">
-                        <li><a href="#car2">Open the application.</a></li> <!-- Inv - first few letters to img -->
-                        <li><a href="#car3">Log in using your “Username” and “Password”.</a></li>
-                        <li><a href="#inv4">Navigate to the "Profile" section and select the "Invite User" option.</a></li>
-						<li><a href="#inv4">Click the "Invite User" button.</a></li>
-						<li><a href="#inv5">Fill in the required details on the form.</a></li>
-						<li><a href="#inv5">Click the "Invite User" button to send the invitation.</a></li>
+						
+                        <li><a href="#car2">Broker-created shipments will be available under the "<strong>Available Loads</strong>" section for carriers.</a></li> <!-- Inv - first few letters to img -->
+                        <li><a href="#car3">Carriers navigate to the "<strong>Shipments</strong>" menu and click on "<strong>Available Loads</strong>".</a></li>
+                        <li><a href="#inv4">Click the "<strong>Re-bid</strong>" button on the load card.</a></li>
+						<li><a href="#inv4">Alternatively, click the "<strong>Re-bid</strong>" button on the "<strong>Details</strong>" or "<strong>Lane Rates</strong>" screen.</a></li>
+						<li><a href="#inv5">Enter the required information in the "<strong>Re-bid</strong>" pop-up and click the "<strong>Submit Your Bid</strong>" button.</a></li>
+						<li><a href="#inv5">The updated rate will appear under the "<strong>Current Bid Rate</strong>" section.</a></li>
+						<li><a href="#inv5">To cancel the bid, click the "<strong>Cancel</strong>" button next to the "<strong>Re-bid</strong>" button.</a></li>
+						<li><a href="#inv5">To view the bid history, click the "<strong>View History</strong>" button.</a></li>
+						<li><a href="#inv5">Once the broker accepts the carrier's bid rate, the carrier clicks the "<strong>Confirm Load</strong>" button to accept the load, officially awarding it to the carrier.</strong>" section.</a></li>
                     </ul>
                 </li>
 				                <li>
 					<button class="toggle-btn" onclick="toggleSubLinks('section7')">
                     <span class="circle-icon"></span>
                     </button>
-                    <a href="#invite1">Brokers Creating Shipments (Bid & Contract Rates)</a>   <!-- Invite - Fully typed is for title with button -->
+						
+					<a href="#brokership1" onclick="toggleSubLinks('section7')">Broker Negotiation on Shipment</a>   <!-- Invite - Fully typed is for title with button -->
                     <ul id="section7" class="sub-links">
-                        <li><a href="#inv2">Open the application.</a></li> <!-- Inv - first few letters to img -->
-                        <li><a href="#inv3">Log in using your “Username” and “Password”.</a></li>
-                        <li><a href="#inv4">Navigate to the "Profile" section and select the "Invite User" option.</a></li>
-						<li><a href="#inv4">Click the "Invite User" button.</a></li>
-						<li><a href="#inv5">Fill in the required details on the form.</a></li>
-						<li><a href="#inv5">Click the "Invite User" button to send the invitation.</a></li>
+						
+                        <li><a href="#inv2">As a broker, you will navigate to the "<strong>Shipments</strong>" menu and click on the "<strong>Available Loads</strong>" tab.</a></li> <!-- Inv - first few letters to link to img -->
+                        <li><a href="#inv3">Click the "<strong>Re-bid</strong>" button on the load card.</a></li>
+                        <li><a href="#inv4">Alternatively, navigate to the "<strong>Details</strong>" or "<strong>Lane Rates</strong>" screen and click the "<strong>Re-bid</strong>" button there.</a></li>
+						<li><a href="#inv4">Complete the required fields in the "<strong>Re-bid</strong>" pop-up and click "<strong>Submit Your Bid</strong>".</a></li>
+						<li><a href="#inv5">The updated rate will appear under the "<strong>Current Bid Rate</strong>" section.</a></li>
+						<li><a href="#inv5">To cancel the bid, click the "<strong>Cancel</strong>" button next to the "<strong>Re-bid</strong>" button.</a></li>
+						<li><a href="#inv5">To view the bid history, click the "<strong>View History</strong>" button.</a></li>
+						<li><a href="#inv5">The broker can accept the carrier's bid rate by clicking the "<strong>Accept" button</strong>. The status will update to "<strong>Bid Accepted</strong>".</a></li>
+						<li><a href="#inv5">Once the broker accepts the bid rate, the carrier must click the "<strong>Confirm Load</strong>" button, officially awarding the load to the carrier.</a></li>
+						<li><a href="#inv5">The awarded load will then appear under the "<strong>Shipments</strong>" menu in the "<strong>Active Shipments</strong>" sub-tab.</a></li>
                     </ul>
                 </li>
 				                <li>
 					<button class="toggle-btn" onclick="toggleSubLinks('section8')">
                     <span class="circle-icon"></span>
                     </button>
-                    <a href="#invite1">Carrier Negotiates on a Shipment</a>   <!-- Invite - Fully typed is for title with button -->
+									
+					<a href="#invitedrive1" onclick="toggleSubLinks('section8')">Carriers Inviting Drivers to the Platform</a>   <!-- Invite - Fully typed is for title with button -->
                     <ul id="section8" class="sub-links">
-                        <li><a href="#inv2">Open the application.</a></li> <!-- Inv - first few letters to img -->
-                        <li><a href="#inv3">Log in using your “Username” and “Password”.</a></li>
-                        <li><a href="#inv4">Navigate to the "Profile" section and select the "Invite User" option.</a></li>
-						<li><a href="#inv4">Click the "Invite User" button.</a></li>
-						<li><a href="#inv5">Fill in the required details on the form.</a></li>
-						<li><a href="#inv5">Click the "Invite User" button to send the invitation.</a></li>
+						
+                        <li><a href="#inv2">The carrier navigates to the "<strong>Driver</strong>" menu and clicks on the "<strong>Add New Driver</strong>" button.</a></li> <!-- Inv - first few letters to img -->
+                        <li><a href="#inv3">Fill in the required details in the <strong>"Add New Driver</strong>" pop-up.</a></li>
+                        <li><a href="#inv4">Click "<strong>Add</strong>" to send a text message to the driver with a link to download the app and register.</a></li>
+						<li><a href="#inv4">The added driver will appear under the "<strong>All Drivers</strong>" screen.</a></li>
                     </ul>
                 </li>
 				                <li>
 					<button class="toggle-btn" onclick="toggleSubLinks('section9')">
                     <span class="circle-icon"></span>
                     </button>
-                    <a href="#invite1">Broker Negotiation on Shipment</a>   <!-- Invite - Fully typed is for title with button -->
+									
+					<a href="#assignship1" onclick="toggleSubLinks('section9')">Carrier Assigning Shipments to Driver</a><!-- Invite - Fully typed is for title with button -->
                     <ul id="section9" class="sub-links">
-                        <li><a href="#inv2">Open the application.</a></li> <!-- Inv - first few letters to img -->
-                        <li><a href="#inv3">Log in using your “Username” and “Password”.</a></li>
-                        <li><a href="#inv4">Navigate to the "Profile" section and select the "Invite User" option.</a></li>
-						<li><a href="#inv4">Click the "Invite User" button.</a></li>
-						<li><a href="#inv5">Fill in the required details on the form.</a></li>
-						<li><a href="#inv5">Click the "Invite User" button to send the invitation.</a></li>
+						
+                        <li><a href="#inv2">The carrier navigates to the "<strong>Shipments</strong>" menu and clicks on the "<strong>Active Shipments</strong>" sub-tab.</a></li> <!-- Inv - first few letters to img -->
+                        <li><a href="#inv3">Locate the shipment card and click the "<strong>Assign Driver</strong>" button.</a></li>
+                        <li><a href="#inv4">Clicking "<strong>Assign Driver</strong>" opens a pop-up window.</a></li>
+						<li><a href="#inv4">Select a driver from the list and click the "<strong>Assign</strong>" button.</a></li>
+						<li><a href="#inv5">A confirmation pop-up will appear. Click "<strong>Yes, Assign</strong>" to finalize the assignment.</a></li>
+						<li><a href="#inv5">The driver will be notified about the assigned shipment.</a></li>
                     </ul>
                 </li>
             </ul>
@@ -305,9 +357,9 @@ ol, ul {
 
         <!-- Right Content Section -->
         <div class="content">
-            <section >
-                <img id ="invite1" src="https://i.imgur.com/Zl7sNak.jpeg" alt="Image 1">
-            </section>
+<section>
+                <img id ="invite1" src="https://i.imgur.com/Zl7sNak.jpeg" alt="Invite A User">
+</section>
 				
             <section>
                 <img id ="inv2" src="https://i.imgur.com/slz5VOL.jpeg" alt="Image 2"><br>
@@ -331,45 +383,95 @@ ol, ul {
 				<p>Click the <b>"Invite User"</b> button to send the invitation.</p>
             </section>
 			
+<section>
+                <img id ="brokeregister1" src="https://i.imgur.com/PcfabLp.jpeg" alt="Broker Registration">
+</section>
+			
+            <section>
+                <img id ="br2" src="https://i.imgur.com/h0S93YE.jpeg" alt="Image 2"><br>
+				<p>After signing up as a broker, you will receive an email notification containing a registration link.</p>
+				<p>Open your email inbox and locate the invitation email.</p>
+				<p>Click on the "<strong>Registration Link</strong>" provided in the email.</p>
+            </section>
 			<section>
-                <img id ="carrier1" src="https://i.imgur.com/Zl7sNak.jpeg" alt="Image 1">
+                <img id ="br3" src="https://i.imgur.com/GwtGCCw.jpeg" alt="Image 2"><br>
+				<p>The link will direct you to the "<strong>User Profile</strong>" page in the application.</p>
+				<p>Fill out the registration form with the required information and click "<strong>Next</strong>".</p>
+            </section>
+			<section>
+                <img id ="br4" src="https://i.imgur.com/k5ft1vU.jpeg" alt="Image 2"><br>
+				<p>You will be redirected to the "<strong>Documents</strong>" tab.</p>
+				<p>Upload the contract document on the "<strong>Documents</strong>" screen. Click "<strong>Submit</strong>" to complete the process.</p>
+            </section>
+			<section>
+                <img id ="br5" src="https://i.imgur.com/APFWTt8.jpeg" alt="Image 2"><br>
+				<p>The system will then redirect you to the "<strong>Login</strong>" screen.</p>
+            </section>
+<section>
+                <img id ="Invitecar1" src="https://i.imgur.com/kR4tLkJ.jpeg" alt="Invite Carriers to the Platform">
+				<p>Open the application.</p>
+</section>
+			<section>
+                <img id ="inv2" src="https://i.imgur.com/slz5VOL.jpeg" alt="Image 2"><br>
 				<p>Open the application.</p>
             </section>
+			
+			<section>
+                <img id ="inv4" src="https://i.imgur.com/slz5VOL.jpeg" alt="Image 2"><br>
+				<p>Open the application.</p>
+			</section>
+<section>
+                <img id ="carregister1" src="https://i.imgur.com/i0yiP8J.jpeg" alt="Carrier Registration">
+				<p>Open the application.</p>
+</section>
 			
             <section>
                 <img id ="inv2" src="https://i.imgur.com/slz5VOL.jpeg" alt="Image 2"><br>
 				<p>Open the application.</p>
             </section>
-			<section>
-                <img id ="invite1" src="https://i.imgur.com/Zl7sNak.jpeg" alt="Image 1">
-				<p>Open the application.</p>
-            </section>
 			
-            <section id="section2">
-                <img id ="inv2" src="https://i.imgur.com/slz5VOL.jpeg" alt="Image 2"><br>
+<section >
+                <img id ="bidrate1" src="https://i.imgur.com/VrQuWW2.jpeg" alt="Brokers Creating Shipments (Bid & Contract Rates)">
 				<p>Open the application.</p>
-            </section>
-			<section>
-                <img id ="invite1" src="https://i.imgur.com/Zl7sNak.jpeg" alt="Image 1">
-				<p>Open the application.</p>
-            </section>
-			
-            <section>
-                <img id ="inv2" src="https://i.imgur.com/slz5VOL.jpeg" alt="Image 2"><br>
-				<p>Open the application.</p>
-            </section>
-			
-			<section >
-                <img id ="invite1" src="https://i.imgur.com/Zl7sNak.jpeg" alt="Image 1">
-				<p>Open the application.</p>
-            </section>
+</section>
 			
             <section>
                 <img id ="inv2" src="https://i.imgur.com/slz5VOL.jpeg" alt="Image 2"><br>
 				<p>Open the application.</p>
             </section>
 
-            <section id="section2">
+<section>
+                <img id ="carriership1" src="https://i.imgur.com/q7hILpD.jpeg" alt="Carrier Negotiates on a Shipment"><br>
+				<p>Open the application.</p>
+</section>
+			<section>
+                <img id ="inv2" src="https://i.imgur.com/slz5VOL.jpeg" alt="Image 2"><br>
+				<p>Open the application.</p>
+            </section>
+			
+<section>
+                <img id ="brokership1" src="https://i.imgur.com/2QE5hJT.jpeg" alt="Broker Negotiation on Shipment"><br>
+				<p>Open the application.</p>
+</section>
+			<section>
+                <img id ="inv2" src="https://i.imgur.com/slz5VOL.jpeg" alt="Image 2"><br>
+				<p>Open the application.</p>
+            </section>
+
+<section>
+                <img id ="invitedrive1" src="https://i.imgur.com/YNSzMEM.jpeg" alt="Carriers Inviting Drivers to the Platform"><br>
+				<p>Open the application.</p>
+</section>
+			<section>
+                <img id ="inv2" src="https://i.imgur.com/slz5VOL.jpeg" alt="Image 2"><br>
+				<p>Open the application.</p>
+            </section>
+			
+<section>
+                <img id ="assignship1" src="https://i.imgur.com/49CIrWi.jpeg" alt="Carrier Assigning Shipments to Driver"><br>
+				<p>Open the application.</p>
+</section>
+			<section>
                 <img id ="inv2" src="https://i.imgur.com/slz5VOL.jpeg" alt="Image 2"><br>
 				<p>Open the application.</p>
             </section>
