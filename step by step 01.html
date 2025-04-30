@@ -156,41 +156,136 @@
       </div>
     </div>
     <!-- Repeat .step-container here for step2 to step5 -->
+	  <!-- Step 2 -->
+<div class="step-container" id="step2">
+  <div class="step-title">Broker - Invites a User</div>
+  <iframe class="step-video" src="https://www.youtube.com/embed/ASuW7NC0IuM" frameborder="0" allowfullscreen></iframe>
+  <div class="gallery-wrapper">
+    <img src="https://i.imgur.com/h9Wo9ad.png" class="gallery-img active" data-step="2" data-index="0">
+    <img src="https://i.imgur.com/gANOLM6.png" class="gallery-img" data-step="2" data-index="1">
+    <img src="https://i.imgur.com/aDXavW2.png" class="gallery-img" data-step="2" data-index="2">
+    <img src="https://i.imgur.com/27Ve6tm.png" class="gallery-img" data-step="2" data-index="3">
+    <div class="gallery-text" id="text2">open the app and login as a broker</div>
+    <div class="gallery-controls">
+      <button onclick="prevImage(2)">Prev</button>
+      <button onclick="nextImage(2)">Next</button>
+    </div>
+  </div>
+</div>
+
+<!-- Step 3 -->
+<div class="step-container" id="step3">
+  <div class="step-title">Broker - Invites a User</div>
+  <iframe class="step-video" src="https://www.youtube.com/embed/ASuW7NC0IuM" frameborder="0" allowfullscreen></iframe>
+  <div class="gallery-wrapper">
+    <img src="https://i.imgur.com/h9Wo9ad.png" class="gallery-img active" data-step="3" data-index="0">
+    <img src="https://i.imgur.com/gANOLM6.png" class="gallery-img" data-step="3" data-index="1">
+    <img src="https://i.imgur.com/aDXavW2.png" class="gallery-img" data-step="3" data-index="2">
+    <img src="https://i.imgur.com/27Ve6tm.png" class="gallery-img" data-step="3" data-index="3">
+    <div class="gallery-text" id="text3">open the app and login as a broker</div>
+    <div class="gallery-controls">
+      <button onclick="prevImage(3)">Prev</button>
+      <button onclick="nextImage(3)">Next</button>
+    </div>
+  </div>
+</div>
+
+<!-- Step 4 -->
+<div class="step-container" id="step4">
+  <div class="step-title">Broker - Invites a User</div>
+  <iframe class="step-video" src="https://www.youtube.com/embed/ASuW7NC0IuM" frameborder="0" allowfullscreen></iframe>
+  <div class="gallery-wrapper">
+    <img src="https://i.imgur.com/h9Wo9ad.png" class="gallery-img active" data-step="4" data-index="0">
+    <img src="https://i.imgur.com/gANOLM6.png" class="gallery-img" data-step="4" data-index="1">
+    <img src="https://i.imgur.com/aDXavW2.png" class="gallery-img" data-step="4" data-index="2">
+    <img src="https://i.imgur.com/27Ve6tm.png" class="gallery-img" data-step="4" data-index="3">
+    <div class="gallery-text" id="text4">open the app and login as a broker</div>
+    <div class="gallery-controls">
+      <button onclick="prevImage(4)">Prev</button>
+      <button onclick="nextImage(4)">Next</button>
+    </div>
+  </div>
+</div>
+
+<!-- Step 5 -->
+<div class="step-container" id="step5">
+  <div class="step-title">Broker - Invites a User</div>
+  <iframe class="step-video" src="https://www.youtube.com/embed/ASuW7NC0IuM" frameborder="0" allowfullscreen></iframe>
+  <div class="gallery-wrapper">
+    <img src="https://i.imgur.com/h9Wo9ad.png" class="gallery-img active" data-step="5" data-index="0">
+    <img src="https://i.imgur.com/gANOLM6.png" class="gallery-img" data-step="5" data-index="1">
+    <img src="https://i.imgur.com/aDXavW2.png" class="gallery-img" data-step="5" data-index="2">
+    <img src="https://i.imgur.com/27Ve6tm.png" class="gallery-img" data-step="5" data-index="3">
+    <div class="gallery-text" id="text5">open the app and login as a broker</div>
+    <div class="gallery-controls">
+      <button onclick="prevImage(5)">Prev</button>
+      <button onclick="nextImage(5)">Next</button>
+    </div>
+  </div>
+</div>
   </div>
 
-  <script>
-    const imageTexts = {
-      1: [
-        "open the app and login as a broker",
-        "go to the profile section and select invite user",
-        "fill out the require details for the user and click invite user",
-        "Congratulations, you've sent the invite"
-      ]
-    };
+<script>
+  const imageTexts = {
+    1: [
+      "open the app and login as a broker",
+      "go to the profile section and select invite user",
+      "fill out the require details for the user and click invite user",
+      "Congratulations, you've sent the invite"
+    ],
+    2: [
+      "open the app and login as a broker",
+      "go to the profile section and select invite user",
+      "fill out the require details for the user and click invite user",
+      "Congratulations, you've sent the invite"
+    ],
+    3: [
+      "open the app and login as a broker",
+      "go to the profile section and select invite user",
+      "fill out the require details for the user and click invite user",
+      "Congratulations, you've sent the invite"
+    ],
+    4: [
+      "open the app and login as a broker",
+      "go to the profile section and select invite user",
+      "fill out the require details for the user and click invite user",
+      "Congratulations, you've sent the invite"
+    ],
+    5: [
+      "open the app and login as a broker",
+      "go to the profile section and select invite user",
+      "fill out the require details for the user and click invite user",
+      "Congratulations, you've sent the invite"
+    ]
+  };
 
-    const galleryState = {1: 0};
+  const galleryState = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0};
 
-    function showImage(step, index) {
-      const images = document.querySelectorAll(`.gallery-img[data-step='${step}']`);
-      images.forEach((img, i) => {
-        img.classList.toggle('active', i === index);
-      });
-      document.getElementById(`text${step}`).innerText = imageTexts[step][index];
-      galleryState[step] = index;
-    }
+  function showImage(step, index) {
+    if (!imageTexts[step] || !imageTexts[step][index]) return;
+    const images = document.querySelectorAll(`.gallery-img[data-step='${step}']`);
+    images.forEach((img, i) => {
+      img.classList.toggle('active', i === index);
+    });
+    const caption = document.getElementById(`text${step}`);
+    if (caption) caption.innerText = imageTexts[step][index];
+    galleryState[step] = index;
+  }
 
-    function nextImage(step) {
-      const total = imageTexts[step].length;
-      const next = (galleryState[step] + 1) % total;
-      showImage(step, next);
-    }
+  function nextImage(step) {
+    if (!imageTexts[step]) return;
+    const total = imageTexts[step].length;
+    const next = ((galleryState[step] || 0) + 1) % total;
+    showImage(step, next);
+  }
 
-    function prevImage(step) {
-      const total = imageTexts[step].length;
-      const prev = (galleryState[step] - 1 + total) % total;
-      showImage(step, prev);
-    }
-  </script>
+  function prevImage(step) {
+    if (!imageTexts[step]) return;
+    const total = imageTexts[step].length;
+    const prev = ((galleryState[step] || 0) - 1 + total) % total;
+    showImage(step, prev);
+  }
+</script>
 
 </body>
 </html>
