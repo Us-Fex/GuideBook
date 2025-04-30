@@ -29,6 +29,7 @@
       font-size: 1.2rem;
     }
     .sidebar-links {
+      align-items: center;
       display: flex;
       flex-direction: column;
     }
@@ -102,8 +103,16 @@
 
   .sidebar {
     width: 100%;
+    height: auto;@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+    overflow-x: hidden;
+  }
+
+  .sidebar {
+    width: 100%;
     height: auto;
-    max-height: 50vh; /* ⬅️ Sidebar takes half screen height */
+    max-height: 50vh;
     overflow-y: auto;
     position: relative;
     padding: 10px;
@@ -112,17 +121,19 @@
   .sidebar h2 {
     font-size: 1rem;
     margin-bottom: 10px;
+    text-align: center;
   }
 
   .sidebar-links {
     display: flex;
-    flex-direction: column; /* ⬅️ stack vertically */
-    gap: 5px; /* ⬅️ small space between links */
+    flex-direction: column;
+    gap: 5px;
+    align-items: center; /* ✅ centers the links horizontally */
   }
 
   .sidebar a {
     font-size: 0.9rem;
-    text-align: left;
+    text-align: center;
     background: none;
     border-radius: 0;
     padding: 4px 8px;
