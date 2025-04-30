@@ -13,6 +13,7 @@
       display: flex;
       flex-direction: row;
     }
+
     .sidebar {
       width: 200px;
       background: #e0e0e0;
@@ -24,15 +25,17 @@
       left: 0;
       overflow-y: auto;
     }
+
     .sidebar h2 {
       margin-top: 0;
       font-size: 1.2rem;
     }
+
     .sidebar-links {
-      align-items: center;
       display: flex;
       flex-direction: column;
     }
+
     .sidebar a {
       display: block;
       color: #000;
@@ -40,14 +43,17 @@
       margin: 10px 0;
       font-size: 1rem;
     }
+
     .sidebar a:hover {
       text-decoration: underline;
     }
+
     .content {
-      margin-left: 270px;
+      margin-left: 220px;
       padding: 20px 40px;
       flex: 1;
     }
+
     .step-container {
       background: #fff;
       margin: 20px 0;
@@ -55,12 +61,14 @@
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
+
     .step-title {
       text-align: center;
       font-size: 1.3rem;
       font-weight: bold;
       margin: 15px 0;
     }
+
     .step-video {
       width: 100%;
       max-width: 1000px;
@@ -68,84 +76,82 @@
       display: block;
       margin: 0 auto 20px auto;
     }
+
     .gallery-wrapper {
       position: relative;
       max-width: 1000px;
       margin: 20px auto 0 auto;
     }
+
     .gallery-img {
       width: 100%;
       height: auto;
       object-fit: contain;
       display: none;
     }
+
     .gallery-img.active {
       display: block;
     }
+
     .gallery-text {
       text-align: center;
       padding: 10px;
     }
+
     .gallery-controls {
       text-align: center;
       margin-top: 10px;
     }
+
     .gallery-controls button {
       padding: 5px 10px;
       margin: 0 5px;
     }
 
     @media (max-width: 768px) {
-  body {
-    flex-direction: column;
-    overflow-x: hidden;
-  }
+      body {
+        flex-direction: column;
+        overflow-x: hidden;
+      }
 
-  .sidebar {
-    width: 100%;
-    height: auto;@media (max-width: 768px) {
-  body {
-    flex-direction: column;
-    overflow-x: hidden;
-  }
+      .sidebar {
+        width: 100%;
+        height: auto;
+        max-height: 50vh;
+        overflow-y: auto;
+        position: relative;
+        padding: 10px;
+      }
 
-  .sidebar {
-    width: 100%;
-    height: auto;
-    max-height: 50vh;
-    overflow-y: auto;
-    position: relative;
-    padding: 10px;
-  }
+      .sidebar h2 {
+        font-size: 1rem;
+        margin-bottom: 10px;
+        text-align: center;
+      }
 
-  .sidebar h2 {
-    font-size: 1rem;
-    margin-bottom: 10px;
-    text-align: center;
-  }
+      .sidebar-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+      }
 
-  .sidebar-links {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    align-items: center; /* ✅ centers the links horizontally */
-  }
+      .sidebar a {
+        font-size: 0.9rem;
+        text-align: center;
+        padding: 5px 10px;
+        margin: 0;
+        background: none;
+        border-radius: 5px;
+        box-shadow: none;
+      }
 
-  .sidebar a {
-    font-size: 0.9rem;
-    text-align: center;
-    background: none;
-    border-radius: 0;
-    padding: 4px 8px;
-    box-shadow: none;
-    margin: 0;
-  }
-
-  .content {
-    margin-left: 0;
-    padding: 10px;
-  }
-}
+      .content {
+        margin-left: 0;
+        padding: 10px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -316,31 +322,31 @@
 
   const galleryState = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0};
 
-  function showImage(step, index) {
-    if (!imageTexts[step] || !imageTexts[step][index]) return;
-    const images = document.querySelectorAll(`.gallery-img[data-step='${step}']`);
-    images.forEach((img, i) => {
-      img.classList.toggle('active', i === index);
-    });
-    const caption = document.getElementById(`text${step}`);
-    if (caption) caption.innerText = imageTexts[step][index];
-    galleryState[step] = index;
-  }
+     function showImage(step, index) {
+      if (!imageTexts[step] || !imageTexts[step][index]) return;
+      const images = document.querySelectorAll(`.gallery-img[data-step='${step}']`);
+      images.forEach((img, i) => {
+        img.classList.toggle('active', i === index);
+      });
+      const caption = document.getElementById(`text${step}`);
+      if (caption) caption.innerText = imageTexts[step][index];
+      galleryState[step] = index;
+    }
 
-  function nextImage(step) {
-    if (!imageTexts[step]) return;
-    const total = imageTexts[step].length;
-    const next = ((galleryState[step] || 0) + 1) % total;
-    showImage(step, next);
-  }
+    function nextImage(step) {
+      if (!imageTexts[step]) return;
+      const total = imageTexts[step].length;
+      const next = ((galleryState[step] || 0) + 1) % total;
+      showImage(step, next);
+    }
 
-  function prevImage(step) {
-    if (!imageTexts[step]) return;
-    const total = imageTexts[step].length;
-    const prev = ((galleryState[step] || 0) - 1 + total) % total;
-    showImage(step, prev);
-  }
-</script>
+    function prevImage(step) {
+      if (!imageTexts[step]) return;
+      const total = imageTexts[step].length;
+      const prev = ((galleryState[step] || 0) - 1 + total) % total;
+      showImage(step, prev);
+    }
+  </script>
 
 </body>
 </html>
