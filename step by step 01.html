@@ -14,7 +14,7 @@
       flex-direction: row;
     }
     .sidebar {
-      width: 150px;
+      width: 200px;
       background: #e0e0e0;
       color: #000;
       padding: 20px;
@@ -143,10 +143,11 @@
     <h2>Broker</h2>
     <div class="sidebar-links">
       <a href="#step1">Invite a User</a>
-      <a href="#step2">Negotiation on Shipment 2</a>
-      <a href="#step3">Invites a User 3</a>
-      <a href="#step4">Invites a User 4</a>
-      <a href="#step5">Invites a User 5</a>
+      <a href="#step2">Negotiation on Shipment</a>
+      <a href="#step3">Create A Shipment</a>
+      <a href="#step4">Registration</a>
+      <a href="#step5">Invites a User</a>
+	  <a href="#step6">Invite Carriers to the Platform</a>
     </div>
   </div>
 
@@ -170,12 +171,17 @@
 	  <!-- Step 2 -->
 <div class="step-container" id="step2">
   <div class="step-title">Negotiation on Shipment</div>
-  <iframe class="step-video" src="https://www.youtube.com/watch?v=b0TAo2PS5DQ" frameborder="0" allowfullscreen></iframe>
+  <iframe class="step-video" src="https://www.youtube.com/embed/b0TAo2PS5DQ" frameborder="0" allowfullscreen></iframe>
   <div class="gallery-wrapper">
-    <img src="https://i.imgur.com/h9Wo9ad.png" class="gallery-img active" data-step="2" data-index="0">
-    <img src="https://i.imgur.com/gANOLM6.png" class="gallery-img" data-step="2" data-index="1">
-    <img src="https://i.imgur.com/aDXavW2.png" class="gallery-img" data-step="2" data-index="2">
-    <img src="https://i.imgur.com/27Ve6tm.png" class="gallery-img" data-step="2" data-index="3">
+    <img src="https://i.imgur.com/EbcEwbI.png" class="gallery-img active" data-step="2" data-index="0">
+    <img src="https://i.imgur.com/QSB8lDS.png" class="gallery-img" data-step="2" data-index="1">
+    <img src="https://i.imgur.com/I0OpXMq.png" class="gallery-img" data-step="2" data-index="2">
+    <img src="https://i.imgur.com/Xrm810c.png" class="gallery-img" data-step="2" data-index="3">
+    <img src="https://i.imgur.com/5hAoU56.png" class="gallery-img" data-step="2" data-index="4">
+    <img src="https://i.imgur.com/iPVhU1O.png.png" class="gallery-img" data-step="2" data-index="5">
+    <img src="https://i.imgur.com/gujnFlr" class="gallery-img" data-step="2" data-index="6">
+    <img src="https://i.imgur.com/lU4x88K.png" class="gallery-img" data-step="2" data-index="7">
+    <img src="https://i.imgur.com/6RGxDW5.png" class="gallery-img" data-step="2" data-index="8">
     <div class="gallery-text" id="text2">open the app and login as a broker</div>
     <div class="gallery-controls">
       <button onclick="prevImage(2)">Prev</button>
@@ -186,8 +192,8 @@
 
 <!-- Step 3 -->
 <div class="step-container" id="step3">
-  <div class="step-title">Broker - Invites a User</div>
-  <iframe class="step-video" src="https://www.youtube.com/embed/ASuW7NC0IuM" frameborder="0" allowfullscreen></iframe>
+  <div class="step-title">Create A Shipment</div>
+  <iframe class="step-video" src="https://www.youtube.com/embed/jBB-Sfe7Ffw" frameborder="0" allowfullscreen></iframe>
   <div class="gallery-wrapper">
     <img src="https://i.imgur.com/h9Wo9ad.png" class="gallery-img active" data-step="3" data-index="0">
     <img src="https://i.imgur.com/gANOLM6.png" class="gallery-img" data-step="3" data-index="1">
@@ -203,8 +209,8 @@
 
 <!-- Step 4 -->
 <div class="step-container" id="step4">
-  <div class="step-title">Broker - Invites a User</div>
-  <iframe class="step-video" src="https://www.youtube.com/embed/ASuW7NC0IuM" frameborder="0" allowfullscreen></iframe>
+  <div class="step-title">Registration</div>
+  <iframe class="step-video" src="https://www.youtube.com/embed/Tv8CAoYI2Fc" frameborder="0" allowfullscreen></iframe>
   <div class="gallery-wrapper">
     <img src="https://i.imgur.com/h9Wo9ad.png" class="gallery-img active" data-step="4" data-index="0">
     <img src="https://i.imgur.com/gANOLM6.png" class="gallery-img" data-step="4" data-index="1">
@@ -234,6 +240,22 @@
     </div>
   </div>
 </div>
+	  <!-- step 6 -->
+	  <div class="step-container" id="step6">
+  <div class="step-title">Invite Carriers to the Platform</div>
+  <iframe class="step-video" src="https://www.youtube.com/embed/xS3ZYU4VAYY" frameborder="0" allowfullscreen></iframe>
+  <div class="gallery-wrapper">
+    <img src="https://i.imgur.com/h9Wo9ad.png" class="gallery-img active" data-step="6" data-index="0">
+    <img src="https://i.imgur.com/gANOLM6.png" class="gallery-img" data-step="6" data-index="1">
+    <img src="https://i.imgur.com/aDXavW2.png" class="gallery-img" data-step="6" data-index="2">
+    <img src="https://i.imgur.com/27Ve6tm.png" class="gallery-img" data-step="6" data-index="3">
+    <div class="gallery-text" id="text6">open the app and login as a broker</div>
+    <div class="gallery-controls">
+      <button onclick="prevImage(6)">Prev</button>
+      <button onclick="nextImage(6)">Next</button>
+    </div>
+  </div>
+</div>
   </div>
 
 <script>
@@ -245,10 +267,14 @@
       "Congratulations, you've sent the invite"
     ],
     2: [
-      "open the app and login as a broker",
-      "go to the profile section and select invite user",
-      "fill out the require details for the user and click invite user",
-      "Congratulations, you've sent the invite"
+      "As a broker, Select Shipments",
+      "In Shipments, Select Available Loads",
+      "In Available Loads, Select View Quote",
+      "At the bottom, you will see 'View History', 'Rebid', 'Accept' and 'cancel'"
+	  "Select Rebid to input a new quote rate and submit your quote"
+	  "Once you submit your quote, a congratulations screen will display"
+	  "Select View Histroy to see previous rate submissions"
+	  "It will now be displayed in 'Active Shipment'"
     ],
     3: [
       "open the app and login as a broker",
@@ -267,7 +293,14 @@
       "go to the profile section and select invite user",
       "fill out the require details for the user and click invite user",
       "Congratulations, you've sent the invite"
-    ]
+    ],
+	      6: [
+      "open the app and login as a broker",
+      "go to the profile section and select invite user",
+      "fill out the require details for the user and click invite user",
+      "Congratulations, you've sent the invite"
+    ],
+	  
   };
 
   const galleryState = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0};
