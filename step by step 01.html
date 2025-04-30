@@ -4,13 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Clickable Step-by-Step Guide</title>
-   <style>
+  <style>
     body {
       font-family: sans-serif;
       background: #f5f5f5;
       padding: 0;
       margin: 0;
       display: flex;
+      flex-direction: row;
     }
     .sidebar {
       width: 250px;
@@ -30,7 +31,6 @@
     .sidebar-links {
       display: flex;
       flex-direction: column;
-      flex-wrap: wrap;
     }
     .sidebar a {
       display: block;
@@ -44,7 +44,7 @@
     }
     .content {
       margin-left: 270px;
-      padding: 20px 40px 20px 40px;
+      padding: 20px 40px;
       flex: 1;
     }
     .step-container {
@@ -97,16 +97,12 @@
     @media (max-width: 768px) {
       body {
         flex-direction: column;
-        overflow-x: hidden;
       }
       .sidebar {
         width: 100%;
         height: auto;
         position: relative;
         padding: 10px;
-      }
-      .sidebar h2 {
-        font-size: 1rem;
       }
       .sidebar-links {
         display: flex;
@@ -131,19 +127,19 @@
   </style>
 </head>
 <body>
-<div class="sidebar">
-  <h2>Brokers</h2>
-  <div class="sidebar-links">
-    <a href="#step1">Invites a User 1</a>
-    <a href="#step2">Invites a User 2</a>
-    <a href="#step3">Invites a User 3</a>
-    <a href="#step4">Invites a User 4</a>
-    <a href="#step5">Invites a User 5</a>
+
+  <div class="sidebar">
+    <h2>Brokers</h2>
+    <div class="sidebar-links">
+      <a href="#step1">Invites a User 1</a>
+      <a href="#step2">Invites a User 2</a>
+      <a href="#step3">Invites a User 3</a>
+      <a href="#step4">Invites a User 4</a>
+      <a href="#step5">Invites a User 5</a>
+    </div>
   </div>
 
   <div class="content">
-    <!-- Wrapped actual step sections here -->
-    <!-- Step 1 Section -->
     <div class="step-container" id="step1">
       <div class="step-title">Broker - Invites a User</div>
       <iframe class="step-video" src="https://www.youtube.com/embed/ASuW7NC0IuM" frameborder="0" allowfullscreen></iframe>
@@ -159,74 +155,7 @@
         </div>
       </div>
     </div>
-
-    <!-- Step 2 -->
-    <div class="step-container" id="step2">
-      <div class="step-title">Broker - Invites a User</div>
-      <iframe class="step-video" src="https://www.youtube.com/embed/ASuW7NC0IuM" frameborder="0" allowfullscreen></iframe>
-      <div class="gallery-wrapper">
-        <img src="https://i.imgur.com/h9Wo9ad.png" class="gallery-img active" data-step="2" data-index="0">
-        <img src="https://i.imgur.com/gANOLM6.png" class="gallery-img" data-step="2" data-index="1">
-        <img src="https://i.imgur.com/aDXavW2.png" class="gallery-img" data-step="2" data-index="2">
-        <img src="https://i.imgur.com/27Ve6tm.png" class="gallery-img" data-step="2" data-index="3">
-        <div class="gallery-text" id="text2">open the app and login as a broker</div>
-        <div class="gallery-controls">
-          <button onclick="prevImage(2)">Prev</button>
-          <button onclick="nextImage(2)">Next</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Step 3 -->
-    <div class="step-container" id="step3">
-      <div class="step-title">Broker - Invites a User</div>
-      <iframe class="step-video" src="https://www.youtube.com/embed/ASuW7NC0IuM" frameborder="0" allowfullscreen></iframe>
-      <div class="gallery-wrapper">
-        <img src="https://i.imgur.com/h9Wo9ad.png" class="gallery-img active" data-step="3" data-index="0">
-        <img src="https://i.imgur.com/gANOLM6.png" class="gallery-img" data-step="3" data-index="1">
-        <img src="https://i.imgur.com/aDXavW2.png" class="gallery-img" data-step="3" data-index="2">
-        <img src="https://i.imgur.com/27Ve6tm.png" class="gallery-img" data-step="3" data-index="3">
-        <div class="gallery-text" id="text3">open the app and login as a broker</div>
-        <div class="gallery-controls">
-          <button onclick="prevImage(3)">Prev</button>
-          <button onclick="nextImage(3)">Next</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Step 4 -->
-    <div class="step-container" id="step4">
-      <div class="step-title">Broker - Invites a User</div>
-      <iframe class="step-video" src="https://www.youtube.com/embed/ASuW7NC0IuM" frameborder="0" allowfullscreen></iframe>
-      <div class="gallery-wrapper">
-        <img src="https://i.imgur.com/h9Wo9ad.png" class="gallery-img active" data-step="4" data-index="0">
-        <img src="https://i.imgur.com/gANOLM6.png" class="gallery-img" data-step="4" data-index="1">
-        <img src="https://i.imgur.com/aDXavW2.png" class="gallery-img" data-step="4" data-index="2">
-        <img src="https://i.imgur.com/27Ve6tm.png" class="gallery-img" data-step="4" data-index="3">
-        <div class="gallery-text" id="text4">open the app and login as a broker</div>
-        <div class="gallery-controls">
-          <button onclick="prevImage(4)">Prev</button>
-          <button onclick="nextImage(4)">Next</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Step 5 -->
-    <div class="step-container" id="step5">
-      <div class="step-title">Broker - Invites a User</div>
-      <iframe class="step-video" src="https://www.youtube.com/embed/ASuW7NC0IuM" frameborder="0" allowfullscreen></iframe>
-      <div class="gallery-wrapper">
-        <img src="https://i.imgur.com/h9Wo9ad.png" class="gallery-img active" data-step="5" data-index="0">
-        <img src="https://i.imgur.com/gANOLM6.png" class="gallery-img" data-step="5" data-index="1">
-        <img src="https://i.imgur.com/aDXavW2.png" class="gallery-img" data-step="5" data-index="2">
-        <img src="https://i.imgur.com/27Ve6tm.png" class="gallery-img" data-step="5" data-index="3">
-        <div class="gallery-text" id="text5">open the app and login as a broker</div>
-        <div class="gallery-controls">
-          <button onclick="prevImage(5)">Prev</button>
-          <button onclick="nextImage(5)">Next</button>
-        </div>
-      </div>
-    </div>
+    <!-- Repeat .step-container here for step2 to step5 -->
   </div>
 
   <script>
@@ -236,34 +165,10 @@
         "go to the profile section and select invite user",
         "fill out the require details for the user and click invite user",
         "Congratulations, you've sent the invite"
-      ],
-      2: [
-        "open the app and login as a broker",
-        "go to the profile section and select invite user",
-        "fill out the require details for the user and click invite user",
-        "Congratulations, you've sent the invite"
-      ],
-      3: [
-        "open the app and login as a broker",
-        "go to the profile section and select invite user",
-        "fill out the require details for the user and click invite user",
-        "Congratulations, you've sent the invite"
-      ],
-      4: [
-        "open the app and login as a broker",
-        "go to the profile section and select invite user",
-        "fill out the require details for the user and click invite user",
-        "Congratulations, you've sent the invite"
-      ],
-      5: [
-        "open the app and login as a broker",
-        "go to the profile section and select invite user",
-        "fill out the require details for the user and click invite user",
-        "Congratulations, you've sent the invite"
       ]
     };
 
-    const galleryState = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0};
+    const galleryState = {1: 0};
 
     function showImage(step, index) {
       const images = document.querySelectorAll(`.gallery-img[data-step='${step}']`);
@@ -286,7 +191,6 @@
       showImage(step, prev);
     }
   </script>
-    <!-- End of .content wrapper -->
-  </div>
+
 </body>
 </html>
