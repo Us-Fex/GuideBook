@@ -152,6 +152,10 @@
         padding: 10px;
       }
     }
+	  .gallery-controls button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
   </style>
 </head>
 <body>
@@ -322,30 +326,25 @@
 
   const galleryState = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0};
 
-     function showImage(step, index) {
-      if (!imageTexts[step] || !imageTexts[step][index]) return;
-      const images = document.querySelectorAll(`.gallery-img[data-step='${step}']`);
-      images.forEach((img, i) => {
-        img.classList.toggle('active', i === index);
-      });
-      const caption = document.getElementById(`text${step}`);
-      if (caption) caption.innerText = imageTexts[step][index];
-      galleryState[step] = index;
-    }
+ function showImage(step, index) {
+  if (!imageTexts[step] || !imageTexts[step][index]) return;
 
-    function nextImage(step) {
-      if (!imageTexts[step]) return;
-      const total = imageTexts[step].length;
-      const next = ((galleryState[step] || 0) + 1) % total;
-      showImage(step, next);
-    }
+  const images = document.querySelectorAll(`.gallery-img[data-step='${step}']`);
+  images.forEach((img, i) => {
+    img.classList.toggle('active', i === index);
+  });
 
-    function prevImage(step) {
-      if (!imageTexts[step]) return;
-      const total = imageTexts[step].length;
-      const prev = ((galleryState[step] || 0) - 1 + total) % total;
-      showImage(step, prev);
-    }
+  const caption = document.getElementById(`text${step}`);
+  if (caption) caption.innerText = imageTexts[step][index];
+  galleryState[step] = index;
+
+  // Update button states
+  const prevBtn = document.querySelector(`#step${step} .gallery-controls button[onclick^="prevImage"]`);
+  const nextBtn = document.querySelector(`#step${step} .gallery-controls button[onclick^="nextImage"]`);
+
+  if (prevBtn) prevBtn.disabled = index === 0;
+  if (nextBtn) nextBtn.disabled = index === imageTexts[step].length - 1;
+}
   </script>
 
 </body>
