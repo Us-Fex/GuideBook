@@ -95,35 +95,46 @@
     }
 
     @media (max-width: 768px) {
-      body {
-        flex-direction: column;
-      }
-      .sidebar {
-        width: 100%;
-        height: auto;
-        position: relative;
-        padding: 10px;
-      }
-      .sidebar-links {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        justify-content: space-between;
-      }
-      .sidebar a {
-        font-size: 0.9rem;
-        flex: 0 0 48%;
-        text-align: center;
-        background: #fff;
-        border-radius: 5px;
-        padding: 5px;
-        box-shadow: 0 0 4px rgba(0,0,0,0.1);
-      }
-      .content {
-        margin-left: 0;
-        padding: 10px;
-      }
-    }
+  body {
+    flex-direction: column;
+    overflow-x: hidden;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    max-height: 50vh; /* ⬅️ Sidebar takes half screen height */
+    overflow-y: auto;
+    position: relative;
+    padding: 10px;
+  }
+
+  .sidebar h2 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+
+  .sidebar-links {
+    display: flex;
+    flex-direction: column; /* ⬅️ stack vertically */
+    gap: 5px; /* ⬅️ small space between links */
+  }
+
+  .sidebar a {
+    font-size: 0.9rem;
+    text-align: left;
+    background: none;
+    border-radius: 0;
+    padding: 4px 8px;
+    box-shadow: none;
+    margin: 0;
+  }
+
+  .content {
+    margin-left: 0;
+    padding: 10px;
+  }
+}
   </style>
 </head>
 <body>
