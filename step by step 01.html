@@ -97,6 +97,7 @@
     @media (max-width: 768px) {
       body {
         flex-direction: column;
+        overflow-x: hidden;
       }
       .sidebar {
         width: 100%;
@@ -111,10 +112,11 @@
         display: flex;
         flex-wrap: wrap;
         gap: 10px;
+        justify-content: space-between;
       }
       .sidebar a {
         font-size: 0.9rem;
-        flex: 1 1 45%;
+        flex: 0 0 48%;
         text-align: center;
         background: #fff;
         border-radius: 5px;
