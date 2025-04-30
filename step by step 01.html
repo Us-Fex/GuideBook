@@ -83,12 +83,13 @@
       margin: 20px auto 0 auto;
     }
 
-    .gallery-img {
-      width: 100%;
-      height: auto;
-      object-fit: contain;
-      display: none;
-    }
+.gallery-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: none;
+  border-radius: 20px; /* ⬅️ rounds image corners */
+}
 
     .gallery-img.active {
       display: block;
@@ -99,10 +100,11 @@
       padding: 10px;
     }
 
-    .gallery-controls {
-      text-align: center;
-      margin-top: 10px;
-    }
+.gallery-controls {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 20px; /* ⬅️ adds spacing below the buttons */
+}
 
     .gallery-controls button {
       padding: 5px 10px;
@@ -324,28 +326,47 @@
 	  
   };
 
-  const galleryState = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0};
+   const galleryState = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0};
 
- function showImage(step, index) {
-  if (!imageTexts[step] || !imageTexts[step][index]) return;
+  function showImage(step, index) {
+    if (!imageTexts[step] || !imageTexts[step][index]) return;
 
-  const images = document.querySelectorAll(`.gallery-img[data-step='${step}']`);
-  images.forEach((img, i) => {
-    img.classList.toggle('active', i === index);
+    const images = document.querySelectorAll(`.gallery-img[data-step='${step}']`);
+    images.forEach((img, i) => {
+      img.classList.toggle('active', i === index);
+    });
+
+    const caption = document.getElementById(`text${step}`);
+    if (caption) caption.innerText = imageTexts[step][index];
+    galleryState[step] = index;
+
+    const prevBtn = document.querySelector(`#step${step} .gallery-controls button[onclick^="prevImage"]`);
+    const nextBtn = document.querySelector(`#step${step} .gallery-controls button[onclick^="nextImage"]`);
+
+    if (prevBtn) prevBtn.disabled = index === 0;
+    if (nextBtn) nextBtn.disabled = index === imageTexts[step].length - 1;
+  }
+
+  function nextImage(step) {
+    const current = galleryState[step] || 0;
+    const total = imageTexts[step]?.length || 0;
+    if (current < total - 1) {
+      showImage(step, current + 1);
+    }
+  }
+
+  function prevImage(step) {
+    const current = galleryState[step] || 0;
+    if (current > 0) {
+      showImage(step, current - 1);
+    }
+  }
+
+  // ✅ Initialize all galleries on load
+  Object.keys(imageTexts).forEach(step => {
+    showImage(Number(step), 0);
   });
-
-  const caption = document.getElementById(`text${step}`);
-  if (caption) caption.innerText = imageTexts[step][index];
-  galleryState[step] = index;
-
-  // Update button states
-  const prevBtn = document.querySelector(`#step${step} .gallery-controls button[onclick^="prevImage"]`);
-  const nextBtn = document.querySelector(`#step${step} .gallery-controls button[onclick^="nextImage"]`);
-
-  if (prevBtn) prevBtn.disabled = index === 0;
-  if (nextBtn) nextBtn.disabled = index === imageTexts[step].length - 1;
-}
-  </script>
+</script>
 
 </body>
 </html>
