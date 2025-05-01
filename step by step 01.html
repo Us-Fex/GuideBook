@@ -813,17 +813,16 @@ function switchView(viewId) {
   });
 
   // Highlight on scroll
-  window.addEventListener('scroll', () => {
-    let scrollY = window.scrollY + 100; // Offset for activation zone
-    sections.forEach((section, idx) => {
-      const top = section.offsetTop;
-      const bottom = top + section.offsetHeight;
-      if (scrollY >= top && scrollY < bottom) {
-        links.forEach(l => l.classList.remove('active-link'));
-        links[idx].classList.add('active-link');
-      }
+document.addEventListener("DOMContentLoaded", function () {
+  switchView('agent');
+
+  // Add fade-in animation to the currently active images on page load only
+  setTimeout(() => {
+    document.querySelectorAll('.gallery-img.active').forEach(img => {
+      img.classList.add('animate-in');
     });
-  });
+  }, 50);
+});
 	
 function showImage(step, index) {
   const images = document.querySelectorAll(`.gallery-img[data-step='${step}']`);
