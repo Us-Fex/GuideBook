@@ -172,25 +172,56 @@
   height: auto;
   margin-bottom: 10px;
 }
+	  .sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.menu-btn {
+  background: #fff;
+  color: #ff8820;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  padding: 8px;
+  cursor: pointer;
+  text-align: center;
+  transition: background 0.2s;
+}
+
+.menu-btn.active {
+  background: #444;
+  color: #fff;
+}
   </style>
 </head>
 <body>
 
 <div class="sidebar">
-<a href="https://app-dev.us-fex.com/NOOA/index.html#" class="sidebar-header" style="text-decoration: none; color: inherit;">
-  <img src="https://i.imgur.com/Zdo6UpT.png" alt="NOOA Logo" class="sidebar-logo">
-  <h2>NOOA Agent</h2>
-</a>
-  <div class="sidebar-links">
-      <a href="#step1">Invite a User</a>
-      <a href="#step2">Negotiation on Shipment</a>
-      <a href="#step3">Create A Shipment</a>
-      <a href="#step4">Registration</a>
-      <a href="#step5">Invites a User</a>
-	  <a href="#step6">Invite Carriers to the Platform</a>
-    </div>
+  <div class="sidebar-header">
+    <a href="https://app-dev.us-fex.com/NOOA/index.html#" style="text-decoration: none; color: inherit;">
+      <img src="https://i.imgur.com/Zdo6UpT.png" alt="NOOA Logo" class="sidebar-logo">
+    </a>
   </div>
 
+  <div class="sidebar-menu">
+    <button onclick="switchView('agent')" class="menu-btn active">NOOA AGENT</button>
+    <button onclick="switchView('shipper')" class="menu-btn">SHIPPER</button>
+    <button onclick="switchView('driver')" class="menu-btn">DRIVER</button>
+  </div>
+
+  <div class="sidebar-links" id="sidebar-links-agent">
+    <a href="#step1">Invite a User</a>
+    <a href="#step2">Negotiation on Shipment</a>
+    <a href="#step3">Create A Shipment</a>
+    <a href="#step4">Registration</a>
+    <a href="#step5">Invite a User Again</a>
+    <a href="#step6">Invite Carriers to the Platform</a>
+  </div>
+</div>
+<div class="content-view" id="agent">
   <div class="content">
     <div class="step-container" id="step1">
       <div class="step-title">Invite a User</div>
@@ -297,6 +328,225 @@
   </div>
 </div>
   </div>
+</div>
+	
+	<div class="content-view" id="shipper" style="display: none;">
+  <div class="content">
+    <div class="step-container" id="step1"><div class="step-title">
+      <div class="step-title">Invite a User</div>
+      <iframe class="step-video" src="https://www.youtube.com/embed/ASuW7NC0IuM" frameborder="0" allowfullscreen></iframe>
+      <div class="gallery-wrapper">
+        <img src="https://i.imgur.com/ZQtcXlS.png" class="gallery-img active" data-step="1" data-index="0">
+        <img src="https://i.imgur.com/gANOLM6.png" class="gallery-img" data-step="1" data-index="1">
+        <img src="https://i.imgur.com/aDXavW2.png" class="gallery-img" data-step="1" data-index="2">
+        <img src="https://i.imgur.com/27Ve6tm.png" class="gallery-img" data-step="1" data-index="3">
+        <div class="gallery-text" id="text1">open the app and login as a broker</div>
+        <div class="gallery-controls">
+          <button onclick="prevImage(1)">Prev</button>
+          <button onclick="nextImage(1)">Next</button>
+        </div>
+      </div>
+    </div>
+    <!-- Repeat .step-container here for step2 to step5 -->
+	  <!-- Step 2 -->
+<div class="step-container" id="step2">
+  <div class="step-title">Negotiation on Shipment</div>
+  <iframe class="step-video" src="https://www.youtube.com/embed/b0TAo2PS5DQ" frameborder="0" allowfullscreen></iframe>
+  <div class="gallery-wrapper">
+    <img src="https://i.imgur.com/EbcEwbI.png" class="gallery-img active" data-step="2" data-index="0">
+    <img src="https://i.imgur.com/QSB8lDS.png" class="gallery-img" data-step="2" data-index="1">
+    <img src="https://i.imgur.com/I0OpXMq.png" class="gallery-img" data-step="2" data-index="2">
+    <img src="https://i.imgur.com/Xrm810c.png" class="gallery-img" data-step="2" data-index="3">
+    <img src="https://i.imgur.com/5hAoU56.png" class="gallery-img" data-step="2" data-index="4">
+    <img src="https://i.imgur.com/lU4x88K.png" class="gallery-img" data-step="2" data-index="5">
+    <img src="https://i.imgur.com/gujnFlr.png" class="gallery-img" data-step="2" data-index="6">
+    <img src="https://i.imgur.com/iPVhU1O.png" class="gallery-img" data-step="2" data-index="7">
+    <img src="https://i.imgur.com/6RGxDW5.png" class="gallery-img" data-step="2" data-index="8">
+    <div class="gallery-text" id="text2">open the app and login as a broker</div>
+    <div class="gallery-controls">
+      <button onclick="prevImage(2)">Prev</button>
+      <button onclick="nextImage(2)">Next</button>
+    </div>
+  </div>
+</div>
+
+<!-- Step 3 -->
+<div class="step-container" id="step3">
+  <div class="step-title">Create A Shipment</div>
+  <iframe class="step-video" src="https://www.youtube.com/embed/jBB-Sfe7Ffw" frameborder="0" allowfullscreen></iframe>
+  <div class="gallery-wrapper">
+    <img src="https://i.imgur.com/ZQtcXlS.png" class="gallery-img active" data-step="3" data-index="0">
+    <img src="https://i.imgur.com/gANOLM6.png" class="gallery-img" data-step="3" data-index="1">
+    <img src="https://i.imgur.com/aDXavW2.png" class="gallery-img" data-step="3" data-index="2">
+    <img src="https://i.imgur.com/27Ve6tm.png" class="gallery-img" data-step="3" data-index="3">
+    <div class="gallery-text" id="text3">open the app and login as a broker</div>
+    <div class="gallery-controls">
+      <button onclick="prevImage(3)">Prev</button>
+      <button onclick="nextImage(3)">Next</button>
+    </div>
+  </div>
+</div>
+
+<!-- Step 4 -->
+<div class="step-container" id="step4">
+  <div class="step-title">Registration</div>
+  <iframe class="step-video" src="https://www.youtube.com/embed/Tv8CAoYI2Fc" frameborder="0" allowfullscreen></iframe>
+  <div class="gallery-wrapper">
+    <img src="https://i.imgur.com/ZQtcXlS.png" class="gallery-img active" data-step="4" data-index="0">
+    <img src="https://i.imgur.com/gANOLM6.png" class="gallery-img" data-step="4" data-index="1">
+    <img src="https://i.imgur.com/aDXavW2.png" class="gallery-img" data-step="4" data-index="2">
+    <img src="https://i.imgur.com/27Ve6tm.png" class="gallery-img" data-step="4" data-index="3">
+    <div class="gallery-text" id="text4">open the app and login as a broker</div>
+    <div class="gallery-controls">
+      <button onclick="prevImage(4)">Prev</button>
+      <button onclick="nextImage(4)">Next</button>
+    </div>
+  </div>
+</div>
+
+<!-- Step 5 -->
+<div class="step-container" id="step5">
+  <div class="step-title">Broker - Invites a User</div>
+  <iframe class="step-video" src="https://www.youtube.com/embed/ASuW7NC0IuM" frameborder="0" allowfullscreen></iframe>
+  <div class="gallery-wrapper">
+    <img src="https://i.imgur.com/ZQtcXlS.png" class="gallery-img active" data-step="5" data-index="0">
+    <img src="https://i.imgur.com/gANOLM6.png" class="gallery-img" data-step="5" data-index="1">
+    <img src="https://i.imgur.com/aDXavW2.png" class="gallery-img" data-step="5" data-index="2">
+    <img src="https://i.imgur.com/27Ve6tm.png" class="gallery-img" data-step="5" data-index="3">
+    <div class="gallery-text" id="text5">open the app and login as a broker</div>
+    <div class="gallery-controls">
+      <button onclick="prevImage(5)">Prev</button>
+      <button onclick="nextImage(5)">Next</button>
+    </div>
+  </div>
+</div>
+	  <!-- step 6 -->
+	  <div class="step-container" id="step6">
+  <div class="step-title">Invite Carriers to the Platform</div>
+  <iframe class="step-video" src="https://www.youtube.com/embed/xS3ZYU4VAYY" frameborder="0" allowfullscreen></iframe>
+  <div class="gallery-wrapper">
+    <img src="https://i.imgur.com/ZQtcXlS.png" class="gallery-img active" data-step="6" data-index="0">
+    <img src="https://i.imgur.com/gANOLM6.png" class="gallery-img" data-step="6" data-index="1">
+    <img src="https://i.imgur.com/aDXavW2.png" class="gallery-img" data-step="6" data-index="2">
+    <img src="https://i.imgur.com/27Ve6tm.png" class="gallery-img" data-step="6" data-index="3">
+    <div class="gallery-text" id="text6">open the app and login as a broker</div>
+    <div class="gallery-controls">
+      <button onclick="prevImage(6)">Prev</button>
+      <button onclick="nextImage(6)">Next</button>
+    </div>
+  </div>
+</div>
+  </div></div></div>
+</div>
+	
+	<div class="content-view" id="driver" style="display: none;">
+  <div class="content">
+    <div class="step-container" id="step1"><div class="step-title">
+      <div class="step-title">Invite a User</div>
+      <iframe class="step-video" src="https://www.youtube.com/embed/ASuW7NC0IuM" frameborder="0" allowfullscreen></iframe>
+      <div class="gallery-wrapper">
+        <img src="https://i.imgur.com/ZQtcXlS.png" class="gallery-img active" data-step="1" data-index="0">
+        <img src="https://i.imgur.com/gANOLM6.png" class="gallery-img" data-step="1" data-index="1">
+        <img src="https://i.imgur.com/aDXavW2.png" class="gallery-img" data-step="1" data-index="2">
+        <img src="https://i.imgur.com/27Ve6tm.png" class="gallery-img" data-step="1" data-index="3">
+        <div class="gallery-text" id="text1">open the app and login as a broker</div>
+        <div class="gallery-controls">
+          <button onclick="prevImage(1)">Prev</button>
+          <button onclick="nextImage(1)">Next</button>
+        </div>
+		</div></div>
+    </div>
+    <!-- Repeat .step-container here for step2 to step5 -->
+	  <!-- Step 2 -->
+<div class="step-container" id="step2">
+  <div class="step-title">Negotiation on Shipment</div>
+  <iframe class="step-video" src="https://www.youtube.com/embed/b0TAo2PS5DQ" frameborder="0" allowfullscreen></iframe>
+  <div class="gallery-wrapper">
+    <img src="https://i.imgur.com/EbcEwbI.png" class="gallery-img active" data-step="2" data-index="0">
+    <img src="https://i.imgur.com/QSB8lDS.png" class="gallery-img" data-step="2" data-index="1">
+    <img src="https://i.imgur.com/I0OpXMq.png" class="gallery-img" data-step="2" data-index="2">
+    <img src="https://i.imgur.com/Xrm810c.png" class="gallery-img" data-step="2" data-index="3">
+    <img src="https://i.imgur.com/5hAoU56.png" class="gallery-img" data-step="2" data-index="4">
+    <img src="https://i.imgur.com/lU4x88K.png" class="gallery-img" data-step="2" data-index="5">
+    <img src="https://i.imgur.com/gujnFlr.png" class="gallery-img" data-step="2" data-index="6">
+    <img src="https://i.imgur.com/iPVhU1O.png" class="gallery-img" data-step="2" data-index="7">
+    <img src="https://i.imgur.com/6RGxDW5.png" class="gallery-img" data-step="2" data-index="8">
+    <div class="gallery-text" id="text2">open the app and login as a broker</div>
+    <div class="gallery-controls">
+      <button onclick="prevImage(2)">Prev</button>
+      <button onclick="nextImage(2)">Next</button>
+    </div>
+  </div>
+</div>
+
+<!-- Step 3 -->
+<div class="step-container" id="step3">
+  <div class="step-title">Create A Shipment</div>
+  <iframe class="step-video" src="https://www.youtube.com/embed/jBB-Sfe7Ffw" frameborder="0" allowfullscreen></iframe>
+  <div class="gallery-wrapper">
+    <img src="https://i.imgur.com/ZQtcXlS.png" class="gallery-img active" data-step="3" data-index="0">
+    <img src="https://i.imgur.com/gANOLM6.png" class="gallery-img" data-step="3" data-index="1">
+    <img src="https://i.imgur.com/aDXavW2.png" class="gallery-img" data-step="3" data-index="2">
+    <img src="https://i.imgur.com/27Ve6tm.png" class="gallery-img" data-step="3" data-index="3">
+    <div class="gallery-text" id="text3">open the app and login as a broker</div>
+    <div class="gallery-controls">
+      <button onclick="prevImage(3)">Prev</button>
+      <button onclick="nextImage(3)">Next</button>
+    </div>
+  </div>
+</div>
+
+<!-- Step 4 -->
+<div class="step-container" id="step4">
+  <div class="step-title">Registration</div>
+  <iframe class="step-video" src="https://www.youtube.com/embed/Tv8CAoYI2Fc" frameborder="0" allowfullscreen></iframe>
+  <div class="gallery-wrapper">
+    <img src="https://i.imgur.com/ZQtcXlS.png" class="gallery-img active" data-step="4" data-index="0">
+    <img src="https://i.imgur.com/gANOLM6.png" class="gallery-img" data-step="4" data-index="1">
+    <img src="https://i.imgur.com/aDXavW2.png" class="gallery-img" data-step="4" data-index="2">
+    <img src="https://i.imgur.com/27Ve6tm.png" class="gallery-img" data-step="4" data-index="3">
+    <div class="gallery-text" id="text4">open the app and login as a broker</div>
+    <div class="gallery-controls">
+      <button onclick="prevImage(4)">Prev</button>
+      <button onclick="nextImage(4)">Next</button>
+    </div>
+  </div>
+</div>
+
+<!-- Step 5 -->
+<div class="step-container" id="step5">
+  <div class="step-title">Broker - Invites a User</div>
+  <iframe class="step-video" src="https://www.youtube.com/embed/ASuW7NC0IuM" frameborder="0" allowfullscreen></iframe>
+  <div class="gallery-wrapper">
+    <img src="https://i.imgur.com/ZQtcXlS.png" class="gallery-img active" data-step="5" data-index="0">
+    <img src="https://i.imgur.com/gANOLM6.png" class="gallery-img" data-step="5" data-index="1">
+    <img src="https://i.imgur.com/aDXavW2.png" class="gallery-img" data-step="5" data-index="2">
+    <img src="https://i.imgur.com/27Ve6tm.png" class="gallery-img" data-step="5" data-index="3">
+    <div class="gallery-text" id="text5">open the app and login as a broker</div>
+    <div class="gallery-controls">
+      <button onclick="prevImage(5)">Prev</button>
+      <button onclick="nextImage(5)">Next</button>
+    </div>
+  </div>
+</div>
+	  <!-- step 6 -->
+	  <div class="step-container" id="step6">
+  <div class="step-title">Invite Carriers to the Platform</div>
+  <iframe class="step-video" src="https://www.youtube.com/embed/xS3ZYU4VAYY" frameborder="0" allowfullscreen></iframe>
+  <div class="gallery-wrapper">
+    <img src="https://i.imgur.com/ZQtcXlS.png" class="gallery-img active" data-step="6" data-index="0">
+    <img src="https://i.imgur.com/gANOLM6.png" class="gallery-img" data-step="6" data-index="1">
+    <img src="https://i.imgur.com/aDXavW2.png" class="gallery-img" data-step="6" data-index="2">
+    <img src="https://i.imgur.com/27Ve6tm.png" class="gallery-img" data-step="6" data-index="3">
+    <div class="gallery-text" id="text6">open the app and login as a broker</div>
+    <div class="gallery-controls">
+      <button onclick="prevImage(6)">Prev</button>
+      <button onclick="nextImage(6)">Next</button>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
 
 <script>
   const imageTexts = {
@@ -383,6 +633,18 @@
   Object.keys(imageTexts).forEach(step => {
     showImage(Number(step), 0);
   });
+	function switchView(viewId) {
+  const views = ['agent', 'shipper', 'driver'];
+  views.forEach(v => {
+    document.getElementById(v).style.display = (v === viewId) ? 'block' : 'none';
+  });
+
+  // update sidebar button active state
+  const buttons = document.querySelectorAll('.menu-btn');
+  buttons.forEach(btn => {
+    btn.classList.toggle('active', btn.textContent.toLowerCase().includes(viewId));
+  });
+}
 </script>
 
 </body>
