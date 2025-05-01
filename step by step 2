@@ -190,25 +190,6 @@
         padding: 10px;
       }
     }
-	  .mobile-role-label {
-  display: none;
-  font-size: 0.9rem;
-  color: #fff;
-  text-align: center;
-  padding: 8px 0;
-  font-weight: bold;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-@media (max-width: 768px) {
-  .mobile-role-label {
-    display: block;
-  }
-
-  .sidebar-menu {
-    display: none;
-  }
-}
   </style>
 </head>
 <body>
@@ -219,9 +200,7 @@
         <img src="https://i.imgur.com/Zdo6UpT.png" alt="NOOA Logo" class="sidebar-logo">
       </a>
     </div>
-<div class="mobile-role-label">
-  NOOA AGENT | SHIPPER | DRIVER
-</div>
+
   <div class="sidebar-menu">
     <button onclick="switchView('agent')" class="menu-btn active">NOOA AGENT</button>
     <button onclick="switchView('shipper')" class="menu-btn">SHIPPER</button>
