@@ -163,23 +163,47 @@ body {
 
 /* Mobile Styles */
 @media (max-width: 768px) {
-  .step-video {
-    height: auto;
-    max-height: 300px;
+  .sidebar {
+    width: 150px;
+    font-size: 0.75rem;
+    padding: 10px;
   }
 
-  .sidebar {
-    width: 200px;
-    height: 100vh;
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: 999;
+  .sidebar-logo {
+    width: 70px;
+    margin-bottom: 5px;
+  }
+
+  .menu-btn {
+    padding: 6px;
+    font-size: 0.75rem;
+  }
+
+  .sidebar a {
+    font-size: 0.75rem;
+    margin: 6px 0;
+  }
+
+  .sidebar-links {
+    gap: 4px;
+  }
+
+  .step-title {
+    font-size: 1rem;
+  }
+
+  .gallery-text {
+    font-size: 0.85rem;
   }
 
   .content-view {
-    margin-left: 220px;
-    padding: 15px;
+    margin-left: 150px;
+    padding: 10px;
+  }
+
+  .step-video {
+    height: auto;
+    max-height: 250px;
   }
 }
 	  
