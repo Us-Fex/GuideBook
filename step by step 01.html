@@ -223,6 +223,21 @@ body {
   text-decoration: none;
 }
 	  
+	  @keyframes slideInFromLeft {
+  from {
+    transform: translateX(-120%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.gallery-img.animate-in {
+  animation: slideInFromLeft 0.5s ease-out;
+}
+	  
   </style>
 </head>
 <body>
@@ -795,6 +810,29 @@ function switchView(viewId) {
       }
     });
   });
+	
+	function showImage(step, index) {
+  const images = document.querySelectorAll(`.gallery-img[data-step='${step}']`);
+  images.forEach((img, i) => {
+    img.classList.toggle('active', i === index);
+    if (i === index) {
+      img.classList.remove('animate-in'); // Reset
+      void img.offsetWidth; // Trigger reflow
+      img.classList.add('animate-in'); // Trigger animation
+    } else {
+      img.classList.remove('animate-in');
+    }
+  });
+
+  const caption = document.getElementById(`text${step}`);
+  if (caption) caption.innerText = imageTexts[step][index];
+  galleryState[step] = index;
+
+  const prevBtn = document.querySelector(`button[onclick='prevImage(${step})']`);
+  const nextBtn = document.querySelector(`button[onclick='nextImage(${step})']`);
+  if (prevBtn) prevBtn.disabled = index === 0;
+  if (nextBtn) nextBtn.disabled = index === imageTexts[step].length - 1;
+}
 </script>
 </body>
 </html>
