@@ -701,17 +701,18 @@
 
     function switchView(viewId) {
       const views = ['agent', 'shipper', 'driver'];
-      views.forEach((v) => {
-        document.getElementById(v).classList.toggle('active', v === viewId);
+      views.forEach(v => {
+        const view = document.getElementById(v);
+        if (view) {
+          view.style.display = (v === viewId) ? 'block' : 'none';
+        }
       });
+
       const buttons = document.querySelectorAll('.menu-btn');
-      buttons.forEach((btn) => {
+      buttons.forEach(btn => {
         btn.classList.toggle('active', btn.textContent.toLowerCase().includes(viewId));
       });
     }
-	  window.addEventListener("DOMContentLoaded", () => {
-    switchView("agent");
-  });
 </script>
 
 </body>
