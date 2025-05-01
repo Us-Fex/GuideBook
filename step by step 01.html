@@ -192,7 +192,7 @@
     }
   </style>
 </head>
-<body>
+<body onload="switchView('agent')">>
 
   <div class="sidebar">
     <div class="sidebar-header">
@@ -733,6 +733,9 @@ function switchView(viewId) {
     btn.classList.toggle('active', btn.textContent.toLowerCase().includes(viewId));
   });
 }
+	  document.addEventListener("DOMContentLoaded", function () {
+    switchView('agent');
+  });
 </script>
 
 </body>
