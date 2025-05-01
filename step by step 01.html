@@ -17,7 +17,7 @@
     .sidebar {
       width: 200px;
       background: #ff8820;
-      color: #FFF;
+      color: #fff;
       padding: 20px;
       height: 100vh;
       position: fixed;
@@ -38,7 +38,7 @@
 
     .sidebar a {
       display: block;
-      color: #FFF;
+      color: #fff;
       text-decoration: none;
       margin: 10px 0;
       font-size: 1rem;
@@ -59,7 +59,7 @@
       margin: 20px 0;
       padding: 5px;
       border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
 
     .step-title {
@@ -77,21 +77,21 @@
       margin: 0 auto 20px auto;
     }
 
-	  .gallery-wrapper {
-  max-width: 1000px;
-  margin: 20px auto 0 auto;
-  min-height: 500px;
-}
-.gallery-img {
-  width: 100%;
-  max-height: 600px;
-  min-height: 500px;
-  object-fit: contain;
-  display: none;
-  border-radius: 20px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
+    .gallery-wrapper {
+      max-width: 1000px;
+      margin: 20px auto 0 auto;
+      min-height: 500px;
+    }
 
+    .gallery-img {
+      width: 100%;
+      max-height: 600px;
+      min-height: 500px;
+      object-fit: contain;
+      display: none;
+      border-radius: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
 
     .gallery-img.active {
       display: block;
@@ -102,11 +102,11 @@
       padding: 10px;
     }
 
-.gallery-controls {
-  text-align: center;
-  margin-top: 10px;
-  margin-bottom: 20px; /* ⬅️ adds spacing below the buttons */
-}
+    .gallery-controls {
+      text-align: center;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
 
     .gallery-controls button {
       padding: 5px 10px;
@@ -156,45 +156,56 @@
         padding: 10px;
       }
     }
-	  .gallery-controls button:disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
-}
-	  .sidebar-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 10px;
-}
 
-.sidebar-logo {
-  width: 100px;
-  height: auto;
-  margin-bottom: 10px;
-}
-	  .sidebar-menu {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-bottom: 20px;
-}
+    .gallery-controls button:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
 
-.menu-btn {
-  background: #fff;
-  color: #ff8820;
-  font-weight: bold;
-  border: none;
-  border-radius: 5px;
-  padding: 8px;
-  cursor: pointer;
-  text-align: center;
-  transition: background 0.2s;
-}
+    .sidebar-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 10px;
+    }
 
-.menu-btn.active {
-  background: #444;
-  color: #fff;
-}
+    .sidebar-logo {
+      width: 100px;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    .sidebar-menu {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .menu-btn {
+      background: #fff;
+      color: #ff8820;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      padding: 8px;
+      cursor: pointer;
+      text-align: center;
+      transition: background 0.2s;
+    }
+
+    .menu-btn.active {
+      background: #444;
+      color: #fff;
+    }
+
+    .content-view {
+      display: none;
+    }
+
+    .content-view.active {
+      display: block;
+    }
   </style>
 </head>
 <body>
@@ -332,10 +343,12 @@
 	
 	
 	
-<div class="content-view" id="shipper" style="display: none;">
-  <div class="content">
-    <div class="step-container">
-      <div class="step-title">SHIPPER VERSION</div>
+  <div class="content-view active" id="agent">
+    <div class="content">
+      <!-- EXISTING AGENT CONTENT GOES HERE -->
+      <div class="step-container">
+        <div class="step-title">NOOA AGENT VERSION</div>
+        <p style="text-align:center;">
       <iframe class="step-video" src="https://www.youtube.com/embed/ASuW7NC0IuM" frameborder="0" allowfullscreen></iframe>
       <div class="gallery-wrapper">
         <img src="https://i.imgur.com/ZQtcXlS.png" class="gallery-img active" data-step="1" data-index="0">
@@ -441,10 +454,11 @@
   </div></div></div>
 </div>
 	
-	<div class="content-view" id="driver" style="display: none;">
-  <div class="content">
-    <div class="step-container" id="step1"><div class="step-title">
-      <div class="step-title">Invite a User</div>
+  <div class="content-view" id="driver">
+    <div class="content">
+      <div class="step-container">
+        <div class="step-title">DRIVER VERSION</div>
+        <p style="text-align:center;">
       <iframe class="step-video" src="https://www.youtube.com/embed/ASuW7NC0IuM" frameborder="0" allowfullscreen></iframe>
       <div class="gallery-wrapper">
         <img src="https://i.imgur.com/ZQtcXlS.png" class="gallery-img active" data-step="1" data-index="0">
@@ -635,11 +649,17 @@
   Object.keys(imageTexts).forEach(step => {
     showImage(Number(step), 0);
   });
-	function switchView(viewId) {
-  const views = ['agent', 'shipper', 'driver'];
-  views.forEach(v => {
-    document.getElementById(v).style.display = (v === viewId) ? 'block' : 'none';
-  });
+    function switchView(viewId) {
+      const views = ['agent', 'shipper', 'driver'];
+      views.forEach((v) => {
+        document.getElementById(v).classList.toggle('active', v === viewId);
+      });
+
+      const buttons = document.querySelectorAll('.menu-btn');
+      buttons.forEach((btn) => {
+        btn.classList.toggle('active', btn.textContent.toLowerCase().includes(viewId));
+      });
+    }
 
   // update sidebar button active state
   const buttons = document.querySelectorAll('.menu-btn');
