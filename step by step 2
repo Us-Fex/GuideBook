@@ -226,12 +226,12 @@
     <a href="#step5">Invite a User Again</a>
     <a href="#step6">Invite Carriers to the Platform</a>
   </div>
-	  <div class="sidebar-links" id="sidebar-links-shipper" >
+	  <div class="sidebar-links" id="sidebar-links-shipper" style="display:none;">
   <a href="#step101">Shipper View-Only</a>
   <a href="#step102">Shipper Communications</a>
 </div>
 
-<div class="sidebar-links" id="sidebar-links-driver" >
+<div class="sidebar-links" id="sidebar-links-driver" style="display:none;">
   <a href="#step201">Driver Registration</a>
   <a href="#step202">Driver Communications</a>
 </div>
@@ -722,23 +722,31 @@
 function switchView(viewId) {
   const views = ['agent', 'shipper', 'driver'];
 
+  // Toggle content views
   views.forEach(v => {
     const contentView = document.getElementById(v);
     if (contentView) {
       contentView.style.display = (v === viewId) ? 'block' : 'none';
     }
+  });
 
+  // Toggle sidebar links
+  views.forEach(v => {
     const sidebarLinks = document.getElementById(`sidebar-links-${v}`);
     if (sidebarLinks) {
-      sidebarLinks.classList.toggle('active', v === viewId);
+      sidebarLinks.style.display = (v === viewId) ? 'flex' : 'none';
     }
   });
 
+  // Highlight the active button
   const buttons = document.querySelectorAll('.menu-btn');
   buttons.forEach(btn => {
     btn.classList.toggle('active', btn.textContent.toLowerCase().includes(viewId));
   });
 }
+	  document.addEventListener("DOMContentLoaded", function () {
+    switchView('agent');
+  });
 </script>
 
 </body>
