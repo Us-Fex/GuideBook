@@ -811,7 +811,7 @@ function switchView(viewId) {
     });
   });
 	
-	function showImage(step, index) {
+function showImage(step, index) {
   const images = document.querySelectorAll(`.gallery-img[data-step='${step}']`);
   images.forEach((img, i) => {
     img.classList.toggle('active', i === index);
