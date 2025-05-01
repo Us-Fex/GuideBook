@@ -231,7 +231,7 @@
 
   .step-video {
     height: auto;
-    max-height: 250px;
+    max-height: 500px;
   }
 }
 	  
