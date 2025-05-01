@@ -710,12 +710,24 @@
 
 function switchView(viewId) {
   const views = ['agent', 'shipper', 'driver'];
+
+  // Toggle content views
   views.forEach(v => {
-    document.getElementById(v).style.display = (v === viewId) ? 'block' : 'none';
-    const linkGroup = document.getElementById(`sidebar-links-${v}`);
-    if (linkGroup) linkGroup.style.display = (v === viewId) ? 'flex' : 'none';
+    const contentView = document.getElementById(v);
+    if (contentView) {
+      contentView.style.display = (v === viewId) ? 'block' : 'none';
+    }
   });
 
+  // Toggle sidebar links
+  views.forEach(v => {
+    const sidebarLinks = document.getElementById(`sidebar-links-${v}`);
+    if (sidebarLinks) {
+      sidebarLinks.style.display = (v === viewId) ? 'flex' : 'none';
+    }
+  });
+
+  // Highlight the active button
   const buttons = document.querySelectorAll('.menu-btn');
   buttons.forEach(btn => {
     btn.classList.toggle('active', btn.textContent.toLowerCase().includes(viewId));
