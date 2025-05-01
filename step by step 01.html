@@ -215,6 +215,15 @@
     <a href="#step5">Invite a User Again</a>
     <a href="#step6">Invite Carriers to the Platform</a>
   </div>
+	  <div class="sidebar-links" id="sidebar-links-shipper" style="display:none;">
+  <a href="#step1">Shipper Step 1</a>
+  <a href="#step2">Shipper Step 2</a>
+</div>
+
+<div class="sidebar-links" id="sidebar-links-driver" style="display:none;">
+  <a href="#step1">Driver Step 1</a>
+  <a href="#step2">Driver Step 2</a>
+</div>
 </div>
 	
 <div class="content-view" id="agent">
@@ -699,20 +708,19 @@
 
     Object.keys(imageTexts).forEach(step => showImage(Number(step), 0));
 
-    function switchView(viewId) {
-      const views = ['agent', 'shipper', 'driver'];
-      views.forEach(v => {
-        const view = document.getElementById(v);
-        if (view) {
-          view.style.display = (v === viewId) ? 'block' : 'none';
-        }
-      });
+function switchView(viewId) {
+  const views = ['agent', 'shipper', 'driver'];
+  views.forEach(v => {
+    document.getElementById(v).style.display = (v === viewId) ? 'block' : 'none';
+    const linkGroup = document.getElementById(`sidebar-links-${v}`);
+    if (linkGroup) linkGroup.style.display = (v === viewId) ? 'flex' : 'none';
+  });
 
-      const buttons = document.querySelectorAll('.menu-btn');
-      buttons.forEach(btn => {
-        btn.classList.toggle('active', btn.textContent.toLowerCase().includes(viewId));
-      });
-    }
+  const buttons = document.querySelectorAll('.menu-btn');
+  buttons.forEach(btn => {
+    btn.classList.toggle('active', btn.textContent.toLowerCase().includes(viewId));
+  });
+}
 </script>
 
 </body>
