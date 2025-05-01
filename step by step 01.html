@@ -709,6 +709,9 @@
         btn.classList.toggle('active', btn.textContent.toLowerCase().includes(viewId));
       });
     }
+	  window.addEventListener("DOMContentLoaded", () => {
+    switchView("agent");
+  });
 </script>
 
 </body>
