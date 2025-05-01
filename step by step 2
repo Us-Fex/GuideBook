@@ -190,6 +190,10 @@
         padding: 10px;
       }
     }
+	  .step-video {
+  height: auto;
+  max-height: 300px;
+}
   </style>
 </head>
 <body>
