@@ -833,6 +833,20 @@ function switchView(viewId) {
   if (prevBtn) prevBtn.disabled = index === 0;
   if (nextBtn) nextBtn.disabled = index === imageTexts[step].length - 1;
 }
+	// Highlight the active button
+const buttons = document.querySelectorAll('.menu-btn');
+buttons.forEach(btn => {
+  btn.classList.toggle('active', btn.textContent.toLowerCase().includes(viewId));
+});
+
+// 🔁 Animate all active images again on view switch
+setTimeout(() => {
+  document.querySelectorAll('.content-view.active .gallery-img.active').forEach(img => {
+    img.classList.remove('animate-in');
+    void img.offsetWidth;
+    img.classList.add('animate-in');
+  });
+}, 50);
 </script>
 </body>
 </html>
