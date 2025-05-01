@@ -6,232 +6,204 @@
   <title>NOOA Role Switcher</title>
   <style>
     /* Layout & Base Styling */
-    body {
-      font-family: sans-serif;
-      background: #f5f5f5;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: row;
-      height: 100vh;
-    }
-
-    .sidebar {
-      width: 200px;
-      background: #ff8820;
-      color: #fff;
-      padding: 20px;
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100vh;
-      overflow-y: auto;
-    }
-
-    .sidebar-header {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-bottom: 10px;
-    }
-
-    .sidebar-logo {
-      width: 100px;
-      height: auto;
-      margin-bottom: 10px;
-    }
-
-    .sidebar-menu {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      margin-bottom: 20px;
-    }
-
-    .menu-btn {
-      background: #fff;
-      color: #ff8820;
-      font-weight: bold;
-      border: none;
-      border-radius: 5px;
-      padding: 8px;
-      cursor: pointer;
-      text-align: center;
-      transition: background 0.2s;
-    }
-
-    .menu-btn.active {
-      background: #444;
-      color: #fff;
-    }
-
-    .sidebar-links {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .sidebar a {
-      color: #fff;
-      text-decoration: none;
-      margin: 10px 0;
-      font-size: 1rem;
-    }
-
-    .sidebar a:hover {
-      text-decoration: underline;
-    }
-
-    .content-view {
-      display: none;
-      margin-left: 220px;
-      padding: 20px 40px;
-      flex: 1;
-    }
-
-    .content-view.active {
-      display: block;
-    }
-
-    .step-container {
-      background: #fff;
-      margin: 20px 0;
-      padding: 5px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-
-    .step-title {
-      text-align: center;
-      font-size: 1.3rem;
-      font-weight: bold;
-      margin: 15px 0;
-    }
-
-    .step-video {
-      width: 100%;
-      max-width: 1000px;
-      height: 450px;
-      display: block;
-      margin: 0 auto 20px auto;
-    }
-
-    .gallery-wrapper {
-      max-width: 1000px;
-      margin: 20px auto 0 auto;
-      min-height: 500px;
-    }
-
-    .gallery-img {
-      width: 100%;
-      max-height: 500px;
-      object-fit: contain;
-      display: none;
-      border-radius: 20px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .gallery-img.active {
-      display: block;
-      margin: 0 auto;
-    }
-
-    .gallery-text {
-      text-align: center;
-      padding: 10px;
-    }
-
-    .gallery-controls {
-      text-align: center;
-      margin-top: 10px;
-      margin-bottom: 20px;
-    }
-
-    .gallery-controls button {
-      padding: 5px 10px;
-      margin: 0 5px;
-    }
-
-    .gallery-controls button:disabled {
-      opacity: 0.4;
-      cursor: not-allowed;
-    }
-
-    @media (max-width: 768px) {
-/* body {
-  flex-direction: column;
+body {
+  font-family: sans-serif;
+  background: #f5f5f5;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
   overflow-x: hidden;
-} */
-
-      .sidebar {
-        width: 100%;
-        height: auto;
-        max-height: 50vh;
-        position: relative;
-        padding: 10px;
-      }
-
-      .sidebar h2 {
-        font-size: 1rem;
-        margin-bottom: 10px;
-        text-align: center;
-      }
-
-      .sidebar-links {
-        align-items: center;
-      }
-
-      .sidebar a {
-        font-size: 0.9rem;
-        text-align: center;
-      }
-
-      .content-view {
-        margin-left: 0;
-        padding: 10px;
-      }
-    }
-	  .step-video {
-  height: auto;
-  max-height: 300px;
 }
-	  
-	  @media (max-width: 768px) {
-  body {
-    flex-direction: column;
-    overflow-x: hidden;
-  }
 
+.sidebar {
+  width: 200px;
+  background: #ff8820;
+  color: #fff;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  z-index: 999;
+}
+
+.sidebar-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.sidebar-logo {
+  width: 100px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.menu-btn {
+  background: #fff;
+  color: #ff8820;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  padding: 8px;
+  cursor: pointer;
+  text-align: center;
+  transition: background 0.2s;
+}
+
+.menu-btn.active {
+  background: #444;
+  color: #fff;
+}
+
+.sidebar-links {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar a {
+  color: #fff;
+  text-decoration: none;
+  margin: 10px 0;
+  font-size: 1rem;
+}
+
+.sidebar a:hover {
+  text-decoration: underline;
+}
+
+/* Main Content */
+.content-view {
+  display: none;
+  margin-left: 220px;
+  padding: 20px 40px;
+  flex: 1;
+}
+
+.content-view.active {
+  display: block;
+}
+
+.step-container {
+  background: #fff;
+  margin: 20px 0;
+  padding: 5px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.step-title {
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin: 15px 0;
+}
+
+.step-video {
+  width: 100%;
+  max-width: 1000px;
+  height: 450px;
+  display: block;
+  margin: 0 auto 20px auto;
+}
+
+.gallery-wrapper {
+  max-width: 1000px;
+  margin: 20px auto 0 auto;
+  min-height: 500px;
+}
+
+.gallery-img {
+  width: 100%;
+  max-height: 500px;
+  object-fit: contain;
+  display: none;
+  border-radius: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-img.active {
+  display: block;
+  margin: 0 auto;
+}
+
+.gallery-text {
+  text-align: center;
+  padding: 10px;
+}
+
+.gallery-controls {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.gallery-controls button {
+  padding: 5px 10px;
+  margin: 0 5px;
+}
+
+.gallery-controls button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
   .sidebar {
-    width: 100%;
-    height: auto;
-    max-height: 50vh;
-    position: relative;
-    padding: 10px;
+    width: 100px;
+    font-size: 0.5rem;
+    padding: 5px;
   }
 
-  .sidebar h2 {
-    font-size: 1rem;
-    margin-bottom: 10px;
-    text-align: center;
+  .sidebar-logo {
+    width: 50px;
+    margin-bottom: 3px;
   }
 
-  .sidebar-links {
-    align-items: center;
+  .menu-btn {
+    padding: 4px;
+    font-size: 0.5rem;
   }
 
   .sidebar a {
-    font-size: 0.9rem;
-    text-align: center;
+    font-size: 0.5rem;
+    margin: 4px 0;
+  }
+
+  .sidebar-links {
+    gap: 2px;
+  }
+
+  .step-title {
+    font-size: 0.75rem;
+  }
+
+  .gallery-text {
+    font-size: 0.65rem;
   }
 
   .content-view {
-    margin-left: 0;
-    padding: 10px;
+    margin-left: 100px;
+    padding: 5px;
   }
 
   .step-video {
     height: auto;
-    max-height: 500px;
+    max-height: 200px;
   }
 }
 	  
