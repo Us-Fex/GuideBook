@@ -5,13 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Clickable Step-by-Step Guide</title>
   <style>
+    /* Layout & Base Styling */
     body {
       font-family: sans-serif;
       background: #f5f5f5;
-      padding: 0;
       margin: 0;
+      padding: 0;
       display: flex;
       flex-direction: row;
+      height: 100vh;
     }
 
     .sidebar {
@@ -19,148 +21,11 @@
       background: #ff8820;
       color: #fff;
       padding: 20px;
-      height: 100vh;
       position: fixed;
       top: 0;
       left: 0;
+      height: 100vh;
       overflow-y: auto;
-    }
-
-    .sidebar h2 {
-      margin-top: 0;
-      font-size: 1.2rem;
-    }
-
-    .sidebar-links {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .sidebar a {
-      display: block;
-      color: #fff;
-      text-decoration: none;
-      margin: 10px 0;
-      font-size: 1rem;
-    }
-
-    .sidebar a:hover {
-      text-decoration: underline;
-    }
-
-    .content {
-      margin-left: 220px;
-      padding: 20px 40px;
-      flex: 1;
-    }
-
-    .step-container {
-      background: #fff;
-      margin: 20px 0;
-      padding: 5px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .step-title {
-      text-align: center;
-      font-size: 1.3rem;
-      font-weight: bold;
-      margin: 15px 0;
-    }
-
-    .step-video {
-      width: 100%;
-      max-width: 1000px;
-      height: 450px;
-      display: block;
-      margin: 0 auto 20px auto;
-    }
-
-    .gallery-wrapper {
-      max-width: 1000px;
-      margin: 20px auto 0 auto;
-      min-height: 500px;
-    }
-
-    .gallery-img {
-      width: 100%;
-      max-height: 500px;
-      height: auto;
-      object-fit: contain;
-      display: none;
-      border-radius: 20px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .gallery-img.active {
-      display: block;
-      margin: 0 auto;
-    }
-
-    .gallery-text {
-      text-align: center;
-      padding: 10px;
-    }
-
-    .gallery-controls {
-      text-align: center;
-      margin-top: 10px;
-      margin-bottom: 20px;
-    }
-
-    .gallery-controls button {
-      padding: 5px 10px;
-      margin: 0 5px;
-    }
-
-    @media (max-width: 768px) {
-      body {
-        flex-direction: column;
-        overflow-x: hidden;
-      }
-
-      .sidebar {
-        width: 100%;
-        height: auto;
-        max-height: 50vh;
-        overflow-y: auto;
-        position: relative;
-        padding: 10px;
-      }
-
-      .sidebar h2 {
-        font-size: 1rem;
-        margin-bottom: 10px;
-        text-align: center;
-      }
-
-      .sidebar-links {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 5px;
-      }
-
-      .sidebar a {
-        font-size: 0.9rem;
-        text-align: center;
-        padding: 5px 10px;
-        margin: 0;
-        background: none;
-        border-radius: 5px;
-        box-shadow: none;
-      }
-
-      .content {
-        margin-left: 0;
-        padding: 10px;
-      }
-    }
-
-    .gallery-controls button:disabled {
-      opacity: 0.4;
-      cursor: not-allowed;
     }
 
     .sidebar-header {
@@ -200,31 +65,141 @@
       color: #fff;
     }
 
-.content-view {
-  display: none;
-  flex: 1; /* 👈 Ensures it grows like .content */
-}
+    .sidebar-links {
+      display: flex;
+      flex-direction: column;
+    }
 
-.content-view.active {
-  display: block;
-}
-	  body {
-  display: flex;
-  flex-direction: row;
-  height: 100vh; /* Optional, helps vertical sizing */
-}
-	  
-	  
+    .sidebar a {
+      color: #fff;
+      text-decoration: none;
+      margin: 10px 0;
+      font-size: 1rem;
+    }
+
+    .sidebar a:hover {
+      text-decoration: underline;
+    }
+
+    .content-view {
+      display: none;
+      margin-left: 220px;
+      padding: 20px 40px;
+      flex: 1;
+    }
+
+    .content-view.active {
+      display: block;
+    }
+
+    .step-container {
+      background: #fff;
+      margin: 20px 0;
+      padding: 5px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .step-title {
+      text-align: center;
+      font-size: 1.3rem;
+      font-weight: bold;
+      margin: 15px 0;
+    }
+
+    .step-video {
+      width: 100%;
+      max-width: 1000px;
+      height: 450px;
+      display: block;
+      margin: 0 auto 20px auto;
+    }
+
+    .gallery-wrapper {
+      max-width: 1000px;
+      margin: 20px auto 0 auto;
+      min-height: 500px;
+    }
+
+    .gallery-img {
+      width: 100%;
+      max-height: 500px;
+      object-fit: contain;
+      display: none;
+      border-radius: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .gallery-img.active {
+      display: block;
+      margin: 0 auto;
+    }
+
+    .gallery-text {
+      text-align: center;
+      padding: 10px;
+    }
+
+    .gallery-controls {
+      text-align: center;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+
+    .gallery-controls button {
+      padding: 5px 10px;
+      margin: 0 5px;
+    }
+
+    .gallery-controls button:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+        overflow-x: hidden;
+      }
+
+      .sidebar {
+        width: 100%;
+        height: auto;
+        max-height: 50vh;
+        position: relative;
+        padding: 10px;
+      }
+
+      .sidebar h2 {
+        font-size: 1rem;
+        margin-bottom: 10px;
+        text-align: center;
+      }
+
+      .sidebar-links {
+        align-items: center;
+      }
+
+      .sidebar a {
+        font-size: 0.9rem;
+        text-align: center;
+      }
+
+      .content-view {
+        margin-left: 0;
+        padding: 10px;
+      }
+    }
   </style>
 </head>
 <body>
 
-<div class="sidebar">
-  <div class="sidebar-header">
-    <a href="https://app-dev.us-fex.com/NOOA/index.html#" style="text-decoration: none; color: inherit;">
-      <img src="https://i.imgur.com/Zdo6UpT.png" alt="NOOA Logo" class="sidebar-logo">
-    </a>
-  </div>
+  <div class="sidebar">
+    <div class="sidebar-header">
+      <a href="https://app-dev.us-fex.com/NOOA/index.html#" style="text-decoration: none; color: inherit;">
+        <img src="https://i.imgur.com/Zdo6UpT.png" alt="NOOA Logo" class="sidebar-logo">
+      </a>
+    </div>
 
   <div class="sidebar-menu">
     <button onclick="switchView('agent')" class="menu-btn active">NOOA AGENT</button>
@@ -241,6 +216,7 @@
     <a href="#step6">Invite Carriers to the Platform</a>
   </div>
 </div>
+	
 <div class="content-view" id="agent">
   <div class="content">
     <div class="step-container" id="step1">
@@ -352,14 +328,12 @@
 	
 	
 	
-  <div class="content-view active" id="agent">
+  <div class="content-view" id="shipper">
     <div class="content">
-      <!-- EXISTING AGENT CONTENT GOES HERE -->
       <div class="step-container">
-        <div class="step-title">NOOA AGENT VERSION</div>
-        <p style="text-align:center;">
-      <iframe class="step-video" src="https://www.youtube.com/embed/ASuW7NC0IuM" frameborder="0" allowfullscreen></iframe>
-      <div class="gallery-wrapper">
+        <div class="step-title">Shipper</div>
+        <iframe class="step-video" src="https://www.youtube.com/embed/ASuW7NC0IuM" frameborder="0" allowfullscreen></iframe>
+        <div class="gallery-wrapper">
         <img src="https://i.imgur.com/DQQVftf.png" class="gallery-img active" data-step="101" data-index="0">
         <img src="https://i.imgur.com/gANOLM6.png" class="gallery-img" data-step="101" data-index="1">
         <img src="https://i.imgur.com/aDXavW2.png" class="gallery-img" data-step="101" data-index="2">
@@ -466,10 +440,9 @@
   <div class="content-view" id="driver">
     <div class="content">
       <div class="step-container">
-        <div class="step-title">DRIVER VERSION</div>
-        <p style="text-align:center;">
-      <iframe class="step-video" src="https://www.youtube.com/embed/ASuW7NC0IuM" frameborder="0" allowfullscreen></iframe>
-      <div class="gallery-wrapper">
+        <div class="step-title">Driver</div>
+        <iframe class="step-video" src="https://www.youtube.com/embed/ASuW7NC0IuM" frameborder="0" allowfullscreen></iframe>
+        <div class="gallery-wrapper">
         <img src="https://i.imgur.com/DQQVftf.png" class="gallery-img active" data-step="201" data-index="0">
         <img src="https://i.imgur.com/gANOLM6.png" class="gallery-img" data-step="201" data-index="1">
         <img src="https://i.imgur.com/aDXavW2.png" class="gallery-img" data-step="201" data-index="2">
@@ -615,67 +588,127 @@
       "fill out the require details for the user and click invite user",
       "Congratulations, you've sent the invite"
     ],
+	      101: [
+      "open the app and login as a broker",
+      "go to the profile section and select invite user",
+      "fill out the require details for the user and click invite user",
+      "Congratulations, you've sent the invite"
+    ],
+    102: [
+      "As an Agent, Select Shipments",
+      "In Shipments, Select Available Loads",
+      "In Available Loads, Select View Quote",
+      "At the bottom, you will see 'View History', 'Rebid', 'Accept' and 'cancel'",
+	  "Select Rebid to input a new quote rate and submit your quote",
+	  "Once you submit your quote, a congratulations screen will display",
+	  "Select View Histroy to see previous rate submissions",
+	  "It will now be displayed in 'Active Shipment'"
+    ],
+    103: [
+      "open the app and login as a Agent",
+      "go to the profile section and select invite user",
+      "fill out the require details for the user and click invite user",
+      "Congratulations, you've sent the invite"
+    ],
+    104: [
+      "open the app and login as a Agent",
+      "go to the profile section and select invite user",
+      "fill out the require details for the user and click invite user",
+      "Congratulations, you've sent the invite"
+    ],
+    105: [
+      "open the app and login as a Agent",
+      "go to the profile section and select invite user",
+      "fill out the require details for the user and click invite user",
+      "Congratulations, you've sent the invite"
+    ],
+	      106: [
+      "open the app and login as a Agent",
+      "go to the profile section and select invite user",
+      "fill out the require details for the user and click invite user",
+      "Congratulations, you've sent the invite"
+    ],
+	  
+	      201: [
+      "open the app and login as a broker",
+      "go to the profile section and select invite user",
+      "fill out the require details for the user and click invite user",
+      "Congratulations, you've sent the invite"
+    ],
+    202: [
+      "As an Agent, Select Shipments",
+      "In Shipments, Select Available Loads",
+      "In Available Loads, Select View Quote",
+      "At the bottom, you will see 'View History', 'Rebid', 'Accept' and 'cancel'",
+	  "Select Rebid to input a new quote rate and submit your quote",
+	  "Once you submit your quote, a congratulations screen will display",
+	  "Select View Histroy to see previous rate submissions",
+	  "It will now be displayed in 'Active Shipment'"
+    ],
+    203: [
+      "open the app and login as a Agent",
+      "go to the profile section and select invite user",
+      "fill out the require details for the user and click invite user",
+      "Congratulations, you've sent the invite"
+    ],
+    204: [
+      "open the app and login as a Agent",
+      "go to the profile section and select invite user",
+      "fill out the require details for the user and click invite user",
+      "Congratulations, you've sent the invite"
+    ],
+    205: [
+      "open the app and login as a Agent",
+      "go to the profile section and select invite user",
+      "fill out the require details for the user and click invite user",
+      "Congratulations, you've sent the invite"
+    ],
+	      206: [
+      "open the app and login as a Agent",
+      "go to the profile section and select invite user",
+      "fill out the require details for the user and click invite user",
+      "Congratulations, you've sent the invite"
+    ],
 	  
   };
 
-   const galleryState = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0};
+  const galleryState = {};
 
-  function showImage(step, index) {
-    if (!imageTexts[step] || !imageTexts[step][index]) return;
+    function showImage(step, index) {
+      const images = document.querySelectorAll(`.gallery-img[data-step='${step}']`);
+      images.forEach((img, i) => img.classList.toggle('active', i === index));
+      const caption = document.getElementById(`text${step}`);
+      if (caption) caption.innerText = imageTexts[step][index];
+      galleryState[step] = index;
 
-    const images = document.querySelectorAll(`.gallery-img[data-step='${step}']`);
-    images.forEach((img, i) => {
-      img.classList.toggle('active', i === index);
-    });
-
-    const caption = document.getElementById(`text${step}`);
-    if (caption) caption.innerText = imageTexts[step][index];
-    galleryState[step] = index;
-
-    const prevBtn = document.querySelector(`#step${step} .gallery-controls button[onclick^="prevImage"]`);
-    const nextBtn = document.querySelector(`#step${step} .gallery-controls button[onclick^="nextImage"]`);
-
-    if (prevBtn) prevBtn.disabled = index === 0;
-    if (nextBtn) nextBtn.disabled = index === imageTexts[step].length - 1;
-  }
-
-  function nextImage(step) {
-    const current = galleryState[step] || 0;
-    const total = imageTexts[step]?.length || 0;
-    if (current < total - 1) {
-      showImage(step, current + 1);
+      const prevBtn = document.querySelector(`button[onclick='prevImage(${step})']`);
+      const nextBtn = document.querySelector(`button[onclick='nextImage(${step})']`);
+      if (prevBtn) prevBtn.disabled = index === 0;
+      if (nextBtn) nextBtn.disabled = index === imageTexts[step].length - 1;
     }
-  }
 
-  function prevImage(step) {
-    const current = galleryState[step] || 0;
-    if (current > 0) {
-      showImage(step, current - 1);
+    function nextImage(step) {
+      const current = galleryState[step] || 0;
+      if (current < imageTexts[step].length - 1) showImage(step, current + 1);
     }
-  }
 
-  // ✅ Initialize all galleries on load
-  Object.keys(imageTexts).forEach(step => {
-    showImage(Number(step), 0);
-  });
+    function prevImage(step) {
+      const current = galleryState[step] || 0;
+      if (current > 0) showImage(step, current - 1);
+    }
+
+    Object.keys(imageTexts).forEach(step => showImage(Number(step), 0));
+
     function switchView(viewId) {
       const views = ['agent', 'shipper', 'driver'];
       views.forEach((v) => {
         document.getElementById(v).classList.toggle('active', v === viewId);
       });
-
       const buttons = document.querySelectorAll('.menu-btn');
       buttons.forEach((btn) => {
         btn.classList.toggle('active', btn.textContent.toLowerCase().includes(viewId));
       });
     }
-
-  // update sidebar button active state
-  const buttons = document.querySelectorAll('.menu-btn');
-  buttons.forEach(btn => {
-    btn.classList.toggle('active', btn.textContent.toLowerCase().includes(viewId));
-  });
-}
 </script>
 
 </body>
